@@ -1,0 +1,36 @@
++추천시스템 입문_ 책 진도 빼기
+
+https://doyu-l.tistory.com/269
+
+-검사P 추가
+   ui 필터(각 성향에 맞게) 구현
+   화면 캡쳐https://goodsgoods.tistory.com/268
+
+:HTML 참고
+https://html.spec.whatwg.org/multipage/
+: WIX(웹 개발 기능구현 시 참고(html,css))
+https://www.wix.com/velo/examples
+: WIX 개발자 참고
+https://dev.wix.com/docs/develop-websites
+- https://ko.legacy.reactjs.org/docs/getting-started.html
+https://www.tcpschool.com/xml/xml_basic_namespace
+
+아이콘 추천:
+Material Icons: Google의 Material Design 아이콘 세트
+Font Awesome: 다양한 아이콘을 제공하는 무료/유료 아이콘 세트
+Icons8: 다양한 스타일의 아이콘을 제공하는 사이트
+이런 사이트에서 "movie", "tv", "drama", "recommendation" 등의 키워드로 검색하여 어울리는 아이콘을 선택하면 됩니다.
+
+파비콘 추천:
+파비콘을 만들기 위해 다음 사이트를 활용할 수 있습니다:
+
+Favicon Generator: Favicon.io 같은 파비콘 생성기
+Real Favicon Generator: Real Favicon Generator에서 다양한 해상도와 플랫폼에 맞는 파비콘 생성
+헤더/레이아웃 배치 
+https://brunch.co.kr/@830bfa34e0894d6/25
+
+<리엑트 부트스트랩_>
+https://react-bootstrap.github.io/docs/components/buttons
+
+++
+
