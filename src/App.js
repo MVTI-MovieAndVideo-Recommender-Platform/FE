@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import MyPage from './pages/MyPage'
@@ -10,17 +10,15 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path='/DetailPage' element={<DetailPage />} />
+         <Routes>
+         <Route path="/" element={<HomePage/>} />
          <Route path='/MyPage' element={<MyPage />} />
          <Route path='/MVTITestPage' element={<MVTITestPage />} />
          <Route path='/MVTIResultPage' element={<MVTIResultPage />} />
-        </Routes>
+         <Route path="/content/:id" element={<DetailPage/>}/>
+         </Routes>
       </Layout>
-    </Router>
   );
 }
 
