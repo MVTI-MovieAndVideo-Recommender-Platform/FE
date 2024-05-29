@@ -46,6 +46,7 @@ function SideBar() {
     <aside className="App-sidebar" sidebar>
       <nav>
         <div className="sidebar-inner">
+
           <div className="sidebar-list">
             <p className="title">장르</p>
             {Object.entries(genreList).map(([genreId, genreName]) => (
@@ -67,14 +68,14 @@ function SideBar() {
               href="https://github.com/MVTI-MovieAndVideo-Recommender-Platform/FE.git"
               alt="MVTI가 궁금해요!"
             >
-              MVTI_Github
+              MVTI_Github 바로가기
             </a>
             <br />
             <img
-              src="../src/asset/img/icon01.jpg"
+              src="../asset/img/MVTI_icon001.png"
               alt="MVTI Logo"
-              width="130"
-              height="17"
+              width="30"
+              height="30"
             />
           </div>
         </div>
