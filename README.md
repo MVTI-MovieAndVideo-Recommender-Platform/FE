@@ -38,30 +38,23 @@ https://react-bootstrap.github.io/docs/components/buttons
 ### 0525까지
 관리용 api / 서비스용 api
 데이터 파이프라인 - 기능 기준으로 카테고리 분리하기
-[구현 시 참고]
-컴포넌트다이어그램
-- 각 로고만 보여주는 것이 아니라, 각각의 관계성과 flow가 나타나도록 
-관리용 api / 서비스용 api
-데이터 파이프라인
-기능적인 카테고리를 분리
-
 
 ### 0529
 주간 회의 )
  - UI 리뉴얼(JS라이브러리 -> 버튼 수정)
  - CSS 대체하기
 
- - User Type 별 감성 필터 또는 아바타 기능으로 추가(npm install react-avatar-editor)
-	- 시청 컨텐츠 3개 이상- TV 커짐, 10개이상 은메달
-	- 리뷰 1개-> 연필, 리뷰 3개->볼펜, 10개->만연필
-	-  https://velog.io/@cherry_/ReactThree.js-%ED%8A%B9%EC%A0%95-GLTF-%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EA%B1%B0-GLTF%EC%97%90-type-%EB%84%A3%EA%B8%B0
-	
+
+### 0601
+ - Tailwind CSS : 적용하기
+ - 변수명 일괄 수정 및 메모해두기
+ - 사이드바- 레이아웃 수정
+
+<리엑트 부트스트랩_>
+https://react-bootstrap.github.io/docs/components/buttons
+API 바로 바꿔넣을 수 있도록 수정
 
 
-#마이페이지 항목 수정- user MVTI type 따로 없다 -> 시각화로 대체하기!!!
-#프로필 꾸밀 캐릭터, 아이템이 더 필요해짐,,, 우선 필수 구현 빨리 끝내고, 작업 시작하기!!
-#아바타 편집기#
-https://www.toolify.ai/ko/ai-news-kr/2sywhhbwqpuzzgzkks3yzpvowqqajxgf-1094765
 
 _  _  _  _  _  _  _  _  _  _  _
 
@@ -69,3 +62,4 @@ _  _  _  _  _  _  _  _  _  _  _
 컴포넌트다이어그램: 각 로고만 보여주는 것이 아니라, 각각의 관계성과 flow가 나타나도록 
 관리용 api / 서비스용 api 구분하기 -> 도식화하기
 데이터 파이프라인 수정
+- 모바일/웹 각각 전용 컴포넌트 있는지 체크

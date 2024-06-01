@@ -59,7 +59,7 @@ export function SideBar() {
              </a>
              <br />
              <img
-               src="../asset/img/MVTI_icon001.png"
+               src="../asset/img/logo.svg"
                alt="MVTI Logo"
                width="30"
                height="30"
