@@ -6,25 +6,25 @@ import "./Content.css";
 //임의 피쳐: id, year, title, summary,poster,genres
 function Content({id, year, title, summary,poster,genres,}) {
    return(
-   <div className="Content">
       <Link
-      to ={{
-         pathname: `/movie/${id}`,
-         state: 
-         {
-          year,
-          title,
-          summary,
-          poster,
-          genres
-         }
-      }}
+         to = {{
+           pathname: `/movie/${id}`,
+            state: 
+            {
+             year,
+             title,
+             summary,
+             poster,
+             genres
+            }         
+         }}
+         className="content-box"
          >
-            <img src={poster} alt={title} title={title} />
-            <div className="content__data">
-               <h3 className="content__title">{title}</h3>
-               <h5 className="content__year">{year}</h5>
-               <ul className="content__genres">
+            <img src={poster} alt={title} />
+                 <div className="content__data">
+                  <h3 className="content__title">{title}</h3>
+                  <h5 className="content__year">{year}</h5>
+                  <ul className="content__genres">
                   {genres.map((genre,index) => (
                      <li key={index} className="genres__genre">
                      {genre}
@@ -34,9 +34,10 @@ function Content({id, year, title, summary,poster,genres,}) {
                <p className="Content_summary">{summary.slice(0.180)}...</p>
                </div>
             </Link>
-         </div>
       );
    }
+
+
 
    Content.prototype = {
    id: PropTypes.number.isRequired,

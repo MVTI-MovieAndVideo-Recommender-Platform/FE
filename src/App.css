@@ -19,8 +19,9 @@
 .App-header, .App-footer {
    background-color: #282c34;
    color: white;
-   padding: 10px;
- }
+   padding: 5px;
+   display: flexbox;
+}
  
  .App-header {
    position: fixed;
@@ -49,10 +50,12 @@
  }
  
  .App-sidebar {
-   background-color: #20232a;
+   background-color: #ffffff;
    padding: 20px;
-   width: 200px;
-   color: white;
+   width: 100px;
+   color: rgb(0, 0, 0);
+   position: sticky;
+   
  }
  
  .App-content {

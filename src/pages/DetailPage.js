@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
-
+import {useLocation} from "react-router-dom";
+//import { useParams, useLocation } from "react-router-dom";
 function DetailPage() {
-  const { id } = useParams();
+//  const { id } = useParams();
   const location = useLocation();
   const { year, title, summary, poster, genres } = location.state || {};
    
@@ -11,16 +11,16 @@ function DetailPage() {
   }
 
   return (
-   <div>
-     <img src={poster} alt={title} />
-     <h1>{title}</h1>
-     <h3>{year}</h3>
-     <ul>
-       {genres.map((genre, index) => (
-         <li key={index}>{genre}</li>
-       ))}
-     </ul>
-     <p>{summary}</p>
+   <div className="detail">
+      <img src={poster} alt={title} />
+      <h1>{title}</h1>
+      <h3>{year}</h3>
+      <ul>
+         {genres.map((genre,index) => (
+            <li key={index}>{genre}</li>
+         ))}
+      </ul>
+      <p>{summary}</p>
    </div>
  );
 }
