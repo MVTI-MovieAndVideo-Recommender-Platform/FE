@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
-import {fetchGenres} from "./api";
-import { addEventOnElements } from "./Global";
+import {fetchGenres} from "./api.js";
+import { addEventOnElements } from "./Global.js";
 
 export function SideBar() {
    const [genreList, setGenreList] = useState({});

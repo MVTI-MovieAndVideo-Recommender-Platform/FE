@@ -1,6 +1,8 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
 //import { useParams, useLocation } from "react-router-dom";
+
+
 function DetailPage() {
 //  const { id } = useParams();
   const location = useLocation();

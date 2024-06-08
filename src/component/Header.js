@@ -4,10 +4,10 @@ import "../App.css";
 //검색창- 
 //로그인/회원가입- 해당 모달 이동
 
-function Header() {
+const Header = () => {
   return (
     <header className="App-header">
-      <h1>Header</h1>
+      <p>App-header</p>
     </header>
     
   );
