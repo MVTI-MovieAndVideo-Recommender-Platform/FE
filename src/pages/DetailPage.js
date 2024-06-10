@@ -1,7 +1,7 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
+import Rating from "../component/Rating.js";
 //import { useParams, useLocation } from "react-router-dom";
-
 
 function DetailPage() {
 //  const { id } = useParams();
@@ -22,6 +22,7 @@ function DetailPage() {
             <li key={index}>{genre}</li>
          ))}
       </ul>
+      <Rating /> {/*reafctDom.render대신 컴포넌트로 사용!*/}
       <p>{summary}</p>
    </div>
  );

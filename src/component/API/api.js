@@ -1,14 +1,18 @@
 "use strict";
 
-const fetchDataFromServer = function(url, callback) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => callback(data))
-    .catch((error) => console.error('Error fetching data:', error));
-};
+//0609)async, await 사용->가독성
+const fetchDataFromServer = async function(url, callback) {
+   try{
+      const response = await fetch(url);
+      const data = await response.json();
+      callback(data);
+   }catch(error){
+      console.error('Error fetch Data:',error);
+      }
+   };
 
-const fetchGenres = (callback) => {
-  fetchDataFromServer(
+const fetchGenres = async(callback) => {
+  await fetchDataFromServer(
     'https://pj2ijfkkmb6q7avxdo6fkvhekq0kzmqs.lambda-url.ap-northeast-2.on.aws/search/genre?genres=%EB%93%9C%EB%9D%BC%EB%A7%88&genres=sf&contentype=1&page=1&page_size=100',
     ({ genres }) => {
       const genreMap = {};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal } from './Mopdal';
+import "./style.css";
 
 export const M_Login = () => {
   <h1>login</h1>;

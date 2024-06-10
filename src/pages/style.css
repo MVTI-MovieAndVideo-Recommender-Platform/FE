@@ -55,3 +55,9 @@
     visibility: visible;
     animation: modal-in 1s;    
 }
+.M_login {
+   border-radius: 10px;
+   border: 2px solid white;
+   background: transparent;
+   backdrop-filter: blur(8px);
+}

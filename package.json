@@ -9,7 +9,8 @@
     "axion": "^0.1.0",
     "axios": "^1.7.2",
     "git-filter-repo": "^0.0.30",
-    "next.js": "^1.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
@@ -17,8 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

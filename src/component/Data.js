@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import "./Content.css";
 
 //피쳐: id,title,runtime,release_date,certification,genre,origin_country,overview,director,actor,platform,rating_value,rating_count,posterurl_count,backdropurl_count,posterurl,backdropurl
-function Data({id,
+function Data({
+   id,
    title,
    runtime,
    release_date,
@@ -23,6 +24,8 @@ function Data({id,
    backdropurl,
    contentype,
 })
+
+//contentype:1_movie, 2_content
 {
     const dataTypeText = contentype === 1 ? "movie" : "content";
   
@@ -70,7 +73,7 @@ function Data({id,
     );
   }
   
-  Content.propTypes = {
+  Data.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     runtime: PropTypes.number.isRequired,
@@ -92,3 +95,30 @@ function Data({id,
   };
   
   export default Data;
+
+
+//  use content;
+//
+//CREATE TABLE media (
+//    id INT UNSIGNED NOT NULL PRIMARY KEY,
+//    type ENUM('movie', 'series') NOT NULL,
+//    title VARCHAR(255) NOT NULL,
+//    runtime SMALLINT UNSIGNED NOT NULL,
+//    release_date DATE NOT NULL,
+//    certification VARCHAR(255) DEFAULT NULL,
+//    genre VARCHAR(255) NOT NULL,
+//    origin_country VARCHAR(255) NOT NULL,
+//    overview VARCHAR(2000) NOT NULL,
+//    director VARCHAR(255) DEFAULT NULL,
+//    actor VARCHAR(1000) DEFAULT NULL,
+//    platform VARCHAR(255) NOT NULL,
+//    rating_value DECIMAL(2, 1) UNSIGNED NOT NULL CHECK (
+//        rating >= 0
+//        AND rating <= 5
+//    ),
+//    rating_count INT UNSIGNED NOT NULL,
+//    posterurl_count TINYINT UNSIGNED DEFAULT 0,
+//    backdropurl_count TINYINT UNSIGNED DEFAULT 0,
+//    posterurl VARCHAR(1000) DEFAULT NULL,
+//    backdropurl VARCHAR(1000) DEFAULT NULL
+//);
