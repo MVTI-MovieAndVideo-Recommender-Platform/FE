@@ -9,7 +9,7 @@
           <article>
             <h1>article 상단</h1>
             <section className='popular-contents'>
-              <h2>popular-contentList</h2>
+               <h2>popular-contentList</h2>
               <img src="../asset/img/chungking.jpg" alt="poster01"/>
               <img src="../asset/img/poster01.jpg" alt="poster02"/>
               <img src="../asset/img/poster02.jpg" alt="poster03"/>

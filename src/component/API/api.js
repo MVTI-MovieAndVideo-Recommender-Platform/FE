@@ -1,6 +1,10 @@
 "use strict";
 
 //0609)async, await 사용->가독성
+
+const imageBaseURL = "";
+
+
 const fetchDataFromServer = async function(url, callback) {
    try{
       const response = await fetch(url);
@@ -23,8 +27,7 @@ const fetchGenres = async(callback) => {
     }
   );
 };
-export {fetchDataFromServer, fetchGenres };
-
+export {imageBaseURL, fetchDataFromServer, fetchGenres };
 
 //"use strict";
 //// 임시 API key

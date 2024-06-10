@@ -54,7 +54,7 @@ function Data({
             contentype,
           },
         }}
-        className="data-box"
+        className="data-card"
       >
         <img src={posterurl} alt={title} />
         <div className="Data">
