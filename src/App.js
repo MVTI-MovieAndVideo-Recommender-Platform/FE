@@ -9,6 +9,7 @@ import MVTIResultPage from'./pages/MVTIResultPage.js';
 //import Login from "./pages/Login.js";
 //import GenreContainer from "./component/GenreContainer.js";
 import "./App.css";
+import { M_Login } from "./pages/Login.js";
 //import { fetchDataFromServer } from "./component/api.js";
 
 export default function App() {
@@ -21,11 +22,12 @@ export default function App() {
             <Route path="/MVTIResultPage" element={<MVTIResultPage />} />
             <Route path="/content/:id" element={<DetailPage />} />
             
-            {/*회원 전용- 로그인 상태에 따라 다른 경로로 이동 
-                           {isLoggedIn ? (
+            {isLoggedIn ? (
                   //LogInModal
-                  <Route path="/MyPage" element={<MyPage />} />*/}
-            <Route path="/MyPage" element={<MyPage />} />
+                  <Route path="/MyPage" element={<MyPage />} />
+               ) : (
+                  <Route path="/Login" element={<M_Login />} />
+               )}
       </Routes>
 
    );
@@ -33,9 +35,6 @@ export default function App() {
  //  return();
 
  }
-
-
-
    /*login 상태
    const isLoggedIn = true;
    return (
