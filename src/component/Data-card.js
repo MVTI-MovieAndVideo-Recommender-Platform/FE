@@ -42,5 +42,5 @@ export function createMovieCard(movie) {
     <a href="./detail.html" class="card-btn" title="${title}" onclick="getMovieDetail(${id})"></a>
   `;
 
-  return card;
+  return Data-card;
 }

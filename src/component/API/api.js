@@ -1,5 +1,4 @@
 "use strict";
-
 //0609)async, await 사용->가독성
 
 const imageBaseURL = "";
