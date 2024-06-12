@@ -34,12 +34,31 @@ HTTP로 호출할 때 Header에 접근 토큰(access token) 및 Client ID와 Cli
 
 
 
---------------------------------------------------------------------------
+-Naver 로그인-------------------------------------------------------------------------
+-Kakao 로그인----------------------------
+mvti 앱 키: 81a8ac8cb265ba4a316d3b459a700e3b
+mvti 시크릿 키 : 4EaUbuFfvgH6KqQ30jfcSAMuiMjzb0oP
+리다이렉트URL :  http://localhost:3000/login
+
+
+mvti test시크릿 키jvz405lsBvteq8vJlSFBNAgjW6Bx7yUO
+리다이렉트URL :  http://localhost:3000/login
+
+
+
+네이버 로그인-----------------------------ㅊ
+
+Client ID : ENDOOH8nFrZvnFqcybc2
+Client Secret : x5AUiGEQXM
+
+ENDOOH8nFrZvnFqcybc2 : clientID
+x5AUiGEQXM : client Secret key
+
 http://localhost:3000/
 http://localhost:3000/Login
 http://localhost:3000/Login/naver
 http://localhost:3000/Oauth
--------------------Naver
+Naver---------------------------------------------------------
 ENDOOH8nFrZvnFqcybc2 : clientID
 x5AUiGEQXM : client Secret key
 
@@ -51,37 +70,18 @@ method : GET, POST(응답방식: JSON) - - 접근 토큰의 발급,갱신, 삭�
 https://openapi.naver.com/v1/nid/me
 method : GET(응답방식: JSON)   - 회원 프로필 조회
 
-
-
--------------------------------
-Client ID : ENDOOH8nFrZvnFqcybc2
-Client Secret : x5AUiGEQXM
 API URL : 
 nid/me (네이버아이디로로그인 사용자 프로필 조회 XML)
 nid/getUserProfile (네이버아이디로로그인 사용자 프로필 조회)
 
-
-
-============
-이어서 app.js에서 
-             {isLoggedIn ? (
-                  //LogInModal
-                  <Route path="/MyPage" element={<MyPage />} />
-               ) : (
-                  <Route path="/Login" element={<M_Login />} />
-               )} 부분의 isLoggedIn을 구현하려고 해. Naver의 소셜로그인에 rest.api를 이용할 거야. 
-service client에서 카카오 로그인을 요청하는 과정 중 1.네이버 로그인 인증 요청을 구현할거야. API는 웹 또는 앱에 네이버 로그인 화면을 띄우는 API로, 이용자가 네이버 회원 인증에 성공했는지 확인해.
-
-네이버 로그인 인증 요청)
 메서드:GET / POST, 인증:OAuth, 요청 URL:https://nid.naver.com/oauth2.0/authorize, 출력 포맷:URL 리다이렉트
 접근 토큰 발급/갱신/삭제 요청)
-메서드:GET / POST, 인증 : OAuth 2.0	요청 URL: https://nid.naver.com/oauth2.0/token		출력 포맷 : json
+메서드:GET / POST, 인증 : OAuth 2.0	요청 URL: https://nid.naver.com/oauth2.0/token		
+출력 포맷 : json
 
-ENDOOH8nFrZvnFqcybc2 : clientID
-x5AUiGEQXM : client Secret key
+BE_공통 토큰 처리 및 jwt발급 코드-----------------------------
 
 
--BE_공통 토큰 처리 및 jwt발급 코드-----------------------------
 
 # 카카오 로그인 함수 구현 CQRS : Create
 async def login_by_kakao(
@@ -118,3 +118,12 @@ def create_jwt(token: str, provider: str) -> str:
     except JWTError:
         raise ValueError("인코딩이 되지 않았습니다.")
 
+gpt -------------------------
+이어서 app.js에서 
+             {isLoggedIn ? (
+                  //LogInModal
+                  <Route path="/MyPage" element={<MyPage />} />
+               ) : (
+                  <Route path="/Login" element={<M_Login />} />
+               )} 부분의 isLoggedIn을 구현하려고 해. Naver의 소셜로그인에 rest.api를 이용할 거야. 
+service client에서 카카오 로그인을 요청하는 과정 중 1.네이버 로그인 인증 요청을 구현할거야. API는 웹 또는 앱에 네이버 로그인 화면을 띄우는 API로, 이용자가 네이버 회원 인증에 성공했는지 확인해.
