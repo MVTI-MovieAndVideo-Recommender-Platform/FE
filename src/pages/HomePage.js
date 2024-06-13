@@ -1,63 +1,82 @@
     import React from 'react';
-    // { Component } from 'react';
     import "./HomePage.css";
-    import axios from "axios";
-    import Content from"../component/Content";
+    import Layout from '../component/Layout.js';
     
-    class HomePage extends React.Component{
-       state = {
-          isLoading : true,
-          contents:[]
-       };
-    
-       getContents = async () => {
-          try {
-            const {
-              data: {
-                data: { movies: contents } // 샘플 API 응답에서 movies를 contents로 사용
-              }
-            } = await axios.get(
-              "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
-            );
-            this.setState({ contents, isLoading: false });
-          } catch (error) {
-            console.error("Error fetching data: ", error);
-            this.setState({ isLoading: false });
-          }
-        };
-        componentDidMount() {
-          this.getContents();
-        }
-    
-       render() {
-          const {isLoading, contents} = this.state;
-          return(
-             <section className='container01'>
-                {isLoading ? (
-                   <div className='loader'>
-                   <span className='loader__text'>추천목록 로딩중..</span>
-                   </div>
-                ):(
-                   <div className="contents">
-                     {contents.length > 0 ? (
-                        contents.map(content => (
-                          <Content
-                            key={content.id}
-                            id={content.id}
-                            year={content.year}
-                            title={content.title}
-                            summary={content.summary}
-                            poster={content.medium_cover_image}
-                            genres={content.genres}
-                          />
-                        ))
-                     ) : (
-                        <div>No contents available</div>
-                     )}
-                   </div>
-                )}
-             </section>
-          );
-       }
-    }
-    export default HomePage;
+    const HomePage = () => {
+  return (
+      <Layout>
+        <main>
+            <div className='MVTIContainer'>
+               {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
+               <div>
+               <button className='MVTITestButton'>
+                  <h3>MVTITestButton</h3>
+               </button>
+               </div>
+            </div>
+          <article>
+            <h1>article 상단</h1>
+            <section className='cards-container'>
+               <div className='cards-recommeended'>
+                  <img className='ddbackground-card' src='/poster.jpg' alt='백_이미지'/>
+                  <div className='Data-card'>
+                     <svg></svg>
+                     <h3>제목:Data-card에서 제목읽어오기 </h3>
+                  </div>
+                  <div className='backdrop'></div>
+               </div>
+            </section>
+            <section className='cards-container'>
+               <div className='cards-popular'>
+                  <img className='ddbackground-card' src='/poster.jpg' alt='백_이미지'/>
+                  <div className='card-data'>
+                     <svg></svg>
+                     <h3>제목: </h3>
+                  </div>
+                  <div className='backdrop'></div>
+               </div>
+            </section>
+          </article>
+        </main>
+    </Layout>
+  );
+}
+
+export default HomePage;
+
+
+//  //import axios from "axios";
+//  //import Content from"../component/Content";
+//  //import { render } from '@testing-library/react';
+//
+//  import React from 'react';
+//  import "./HomePage.css";
+//  import Layout from '../component/Layout';
+//  
+//const HomePage = ({children}) => {
+//
+//return (
+//    <Layout>
+//    <div className='MVTIContainer'>
+//      {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
+//      {children}
+//    </div>
+//
+//    <div className="ContentContainer">
+//      {/*ContentContainer 구성*/}
+//      <img src="../asset/img/chungking.jpg" alt="poster01"/>
+//      <img src="../asset/img/poster01.jpg" alt="poster02"/>
+//      <img src="../asset/img/poster02.jpg" alt="poster03"/>
+//    </div>
+//    {/* 다른 컨텐츠를 추가할 수 있도록 children을 렌더링합니다 */}
+//    
+//  </Layout>
+//);
+//}
+//
+//export default HomePage;
+//
+//
+////import axios from "axios";
+////import Content from"../component/Content";
+////import { render } from '@testing-library/react';
