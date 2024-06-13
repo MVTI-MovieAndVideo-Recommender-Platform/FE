@@ -45,7 +45,38 @@
     margin-right: 10px;
     font-size: 14px;
   }
-
+  .rateStar:not(:checked) > input {
+    position: absolute;
+    appearance: none;
+  }
+  
+  .rateStar:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+    color: #666;
+  }
+  
+  .rateStar:not(:checked) > label:before {
+    content: '★';
+  }
+  
+  .rateStar > input:checked + label:hover,
+  .rateStar > input:checked + label:hover ~ label,
+  .rateStar > input:checked ~ label:hover,
+  .rateStar > input:checked ~ label:hover ~ label,
+  .rateStar > label:hover ~ input:checked ~ label {
+    color: #e58e09;
+  }
+  
+  .rateStar:not(:checked) > label:hover,
+  .rateStar:not(:checked) > label:hover ~ label {
+    color: #ff9e0b;
+  }
+  
+  .rateStar > input:checked ~ label {
+    color: #ffa723;
+  }
 /*  .datas .data {*/
 /*    background-color: white;*/
 /*    margin-bottom: 70px;*/

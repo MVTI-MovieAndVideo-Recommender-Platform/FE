@@ -1,4 +1,5 @@
 "use strict";
+import "./Data.css";
 //S3(aws)에 업로드 된 imageBaseURL을 api.js에서 정의하고 호출
 
 //api에서 posterURL
@@ -24,6 +25,19 @@ export function createMovieCard(movie) {
 
     <h4 class="title">${title}</h4>
 
+    <div class="rateStar>
+      <input value="5" name="rate" id="star5" type="radio">
+      <label title="text" for="star5"></label>
+      <input value="4" name="rate" id="star4" type="radio">
+      <label title="text" for="star4"></label>
+      <input value="3" name="rate" id="star3" type="radio" checked="">
+      <label title="text" for="star3"></label>
+      <input value="2" name="rate" id="star2" type="radio">
+      <label title="text" for="star2"></label>
+      <input value="1" name="rate" id="star1" type="radio">
+      <label title="text" for="star1"></label>
+    </div>
+    </div>
     <div class="meta-list">
       <div class="meta-item">
         <img

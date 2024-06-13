@@ -6,3 +6,4 @@ export default function Button({text, onClick}) {
       </button>
    );
 }
+//필요한지 잘 모르겠음_genre때 사용?
