@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 import { Modal } from '../component/Mopdal';
 import {requestNaverLogin} from "../component/NaverLogin";
+import {requestKakaoLogin } from '../component/KakaoLogin';
 import "./Login.css";
 
 //컴포넌트 모달을 열고, 네이버 로그인 요청 처리
+
 export const M_Login = () => {
 //  <h1>네이버/카카오 소셜 Login</h1>;
   const [isOpen, setIsOpen] = useState(false); 
@@ -16,8 +18,13 @@ export const M_Login = () => {
       </button>
 
       <Modal isOpen={isOpen} toggleOpen={toggleOpen}>
-         <h5>로그인 컨텐츠 여기!</h5>
-         <button onClick={requestNaverLogin}>Naver로 소셜로그인</button>
+         <h5>소셜 아이디로 간편하게!</h5>
+         <div className="flex justify-center mb-4">
+          <button className="N_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={requestNaverLogin}></button>
+        </div>
+        <div className="flex justify-center">
+          <button className="K_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={requestKakaoLogin}></button>
+        </div>
       </Modal>
     </>
   );

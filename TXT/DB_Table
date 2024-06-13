@@ -88,3 +88,40 @@ CREATE TABLE recommendation (
     recommended_media_id INT UNSIGNED NOT NULL,
     recommendation_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+
+
+---------------------------------------------------------------------------
+
+rds 서버 mysql8.35
+db 이름 mvti
+마스터 사용자 이름 : adminmvti
+마스터 암호 : mvtiserver
+cud 사용자 id : wotjr980321
+cud 사용자 암호 : mvtiserver
+RDS 호스트
+[mvti-mysql.c3e0mmagcesm.ap-northeast-2.rds.amazonaws.com](http://mvti-mysql.c3e0mmagcesm.ap-northeast-2.rds.amazonaws.com/)
+RDS 포트
+3306
+mongo server 7.0
+mongodb 서버 호스트 : 3.35.105.70
+포트 27017
+db 이름 mvti
+읽기 사용자 id : wkdqhrhkd12
+읽기 사용자 pwd : mvtiserver
+쓰기 수정 삭제 사용자 id : wotjr980321
+쓰기 수정 삭제 사용자 pwd : mvtiserver                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ---------------------------------------------------------------------------
+<컨텐츠 API>
+read server 주소
+
+read server swagger 
+
+https://pj2ijfkkmb6q7avxdo6fkvhekq0kzmqs.lambda-url.ap-northeast-2.on.aws/docs
+컨텐츠사이즈- 건드리지않기.
+영화: 1
+리퀘스트URL 
+https://pj2ijfkkmb6q7avxdo6fkvhekq0kzmqs.lambda-url.ap-northeast-2.on.aws/search/genre?genres=%EB%93%9C%EB%9D%BC%EB%A7%88&genres=sf&contentype=1&page=1&page_size=100
+
+앱 키- rest.api : 81a8ac8cb265ba4a316d3b459a700e3b                                               
+
+

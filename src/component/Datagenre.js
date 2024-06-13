@@ -13,6 +13,11 @@ import { fetchGenres } from "./API/api.js";
 //Hook(useEffect) ->ComponentdidMount, genreId변경 시 데이터 호출
 //렌더링API(동적데이터) 기반 랜더링
 
+
+//장르 특정됨! -> button text->props로 받아오고, 장르 일치 -> dataGenre 또는 Genre로 보여주기!
+
+
+
 function Datagenre({data}) {
    const [genres, setGenres] = useState({});
 
