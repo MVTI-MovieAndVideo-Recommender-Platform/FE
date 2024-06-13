@@ -34,6 +34,7 @@ HTTP로 호출할 때 Header에 접근 토큰(access token) 및 Client ID와 Cli
 
 
 
+<<<<<<< HEAD
 --------------------------------------------------------------------------
 -Kakao 로그인----------------------------
 mvti 앱 키: rest API : 81a8ac8cb265ba4a316d3b459a700e3b / js : 581c81d0517770156f4dbc0137020417
@@ -42,6 +43,14 @@ mvti 시크릿 키 : 4EaUbuFfvgH6KqQ30jfcSAMuiMjzb0oP
 http://localhost:3000/Login
 http://localhost:3000/Login/kakao
 http://localhost:3000/Oauth
+=======
+-Naver 로그인-------------------------------------------------------------------------
+-Kakao 로그인----------------------------
+mvti 앱 키: 81a8ac8cb265ba4a316d3b459a700e3b
+mvti 시크릿 키 : 4EaUbuFfvgH6KqQ30jfcSAMuiMjzb0oP
+리다이렉트URL :  http://localhost:3000/login
+
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
 
 mvti test시크릿 키jvz405lsBvteq8vJlSFBNAgjW6Bx7yUO
 리다이렉트URL :  http://localhost:3000/login
@@ -76,12 +85,17 @@ API URL :
 nid/me (네이버아이디로로그인 사용자 프로필 조회 XML)
 nid/getUserProfile (네이버아이디로로그인 사용자 프로필 조회)
 
+<<<<<<< HEAD
 
 네이버 로그인 인증 요청)
+=======
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
 메서드:GET / POST, 인증:OAuth, 요청 URL:https://nid.naver.com/oauth2.0/authorize, 출력 포맷:URL 리다이렉트
 접근 토큰 발급/갱신/삭제 요청)
-메서드:GET / POST, 인증 : OAuth 2.0	요청 URL: https://nid.naver.com/oauth2.0/token		출력 포맷 : json
+메서드:GET / POST, 인증 : OAuth 2.0	요청 URL: https://nid.naver.com/oauth2.0/token		
+출력 포맷 : json
 
+<<<<<<< HEAD
 
 
 ---------------------------------------------------------------------------------------------
@@ -90,9 +104,11 @@ Client Secret : x5AUiGEQXM
 API URL : 
 nid/me (네이버아이디로로그인 사용자 프로필 조회 XML)
 nid/getUserProfile (네이버아이디로로그인 사용자 프로필 조회)
+=======
+BE_공통 토큰 처리 및 jwt발급 코드-----------------------------
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
 
 
--BE_공통 토큰 처리 및 jwt발급 코드-----------------------------
 
 # 카카오 로그인 함수 구현 CQRS : Create
 async def login_by_kakao(
@@ -129,7 +145,10 @@ def create_jwt(token: str, provider: str) -> str:
     except JWTError:
         raise ValueError("인코딩이 되지 않았습니다.")
 
+<<<<<<< HEAD
 ========================================================================
+=======
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
 gpt -------------------------
 이어서 app.js에서 
              {isLoggedIn ? (
