@@ -1,4 +1,22 @@
-+추천시스템 입문_ 책 진도 빼기
+0612 links 열어둔거 정리://네이버: 버튼, 카카오 all, 랜덤스테이트 만들기 추가1!!
+card 정리+넣고, 클릭 -> id 받아서 Detail 이동!
+
+https://tailwindui.com/components/application-ui/navigation/navbars
+https://developers.kakao.com/docs/latest/ko/kakaologin/common
+https://developers.kakao.com/tool/resource/login
+https://developers.naver.com/docs/login/api/api.md
+https://tailwindui.com/documentation#react-creating-components
+https://ossam5.tistory.com/112
+
+
+
+
+
+https://developers.naver.com/docs/login/api/api.md
+
+
+[TIL] React no-template-curly-in-string
+
 
 https://doyu-l.tistory.com/269
 
@@ -6,10 +24,19 @@ https://doyu-l.tistory.com/269
    ui 필터(각 성향에 맞게) 구현
    화면 캡쳐https://goodsgoods.tistory.com/268
 
+https://sisiblog.tistory.com/326
+
+Tailwind CSS_
+https://tailwindui.com/components/application-ui/navigation/navbars
+github_컴포넌트 라이브러리
+https://github.com/gevendra2004/gevstack
+
 :HTML 참고
 https://html.spec.whatwg.org/multipage/
+
 : WIX(웹 개발 기능구현 시 참고(html,css))
 https://www.wix.com/velo/examples
+
 : WIX 개발자 참고
 https://dev.wix.com/docs/develop-websites
 - https://ko.legacy.reactjs.org/docs/getting-started.html
@@ -22,15 +49,15 @@ Icons8: 다양한 스타일의 아이콘을 제공하는 사이트
 이런 사이트에서 "movie", "tv", "drama", "recommendation" 등의 키워드로 검색하여 어울리는 아이콘을 선택하면 됩니다.
 
 파비콘 추천:
-파비콘을 만들기 위해 다음 사이트를 활용할 수 있습니다:
-
 Favicon Generator: Favicon.io 같은 파비콘 생성기
 Real Favicon Generator: Real Favicon Generator에서 다양한 해상도와 플랫폼에 맞는 파비콘 생성
+
 헤더/레이아웃 배치 
 https://brunch.co.kr/@830bfa34e0894d6/25
 
-<리엑트 부트스트랩_>
-https://react-bootstrap.github.io/docs/components/buttons
 
+ - User Type 별 감성 필터 또는 아바타 기능으로 추가
+ (npm install react-avatar-editor)
+	-  https://velog.io/@cherry_/ReactThree.js-%ED%8A%B9%EC%A0%95-GLTF-%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EA%B1%B0-GLTF%EC%97%90-type-%EB%84%A3%EA%B8%B0
 ++
 

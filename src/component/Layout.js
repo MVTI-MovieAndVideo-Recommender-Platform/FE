@@ -1,25 +1,36 @@
-//layout.js에 합치기
-//import Header from './component/Header';
-//import {Footer} from './component/Footer';
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import SideBar from "./SideBar";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
 import "../App.css";
+//layout 컴포넌트
 
-function Layout({ children }) {
-   return (
-     <div className="App">
-       <Header />
-       <div className="App-body">
-         <SideBar />
-         <main className="App-content">
-           {children}
-         </main>
-       </div>
+const Layout = ({children}) => {
+  return (
+    <div className="App">
+      <Header/>
+      <div className="App-body">
+      {children}    
+      </div>
        <Footer />
-     </div>
-   );
- }
- 
- export default Layout;
+    </div>
+  );
+}
+
+export default Layout;
+
+
+//const Layout = ({children}) => {
+//   return (
+//     <div className="App">
+//       <Header />
+//       <div className="App-body">
+//         <main className="App-content">
+//           {children}
+//         </main>
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// }
+// 
+// export default Layout;
