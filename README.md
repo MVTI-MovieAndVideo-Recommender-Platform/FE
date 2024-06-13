@@ -1,7 +1,11 @@
 ## [개발 일지]
+features_keyfeature
 ### 0609 added
 
 
+### 0416)   git commit error 수정
+
+### 0418-9) Type Script 으로 수정 (mvti0418) 및 ESLint 적용
 ### 0424wed - 이번주말
 	- 테스트페이지 레이아웃 잡기 -> 연결까지 연습
 	- 필요한 컴포넌트( 참고해서 구현)
