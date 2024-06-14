@@ -42,6 +42,8 @@ import "./Content.css";
    }
    
    return (
+      //pathname: '/movie/1' -> /movie/1 경로로 이동
+      //start:이동 시 함께 전달되는 상태 데이터 (대상 경로의 컴포넌트에서 'useLocation'hook으로 접근!) 
       <Link to={{
           pathname: `/${dataTypeText}/${id}`,
           state: {
@@ -67,7 +69,6 @@ import "./Content.css";
         }}
         className="data-card"
       > 
-      
         {posterurl_count > 0 && <img src={posterurl} alt={title} />}
         <div className="Data">
           <h3 className="data__title">{title}</h3>
@@ -79,7 +80,8 @@ import "./Content.css";
               </li>
             ))}
           </ul>
-          <p className="data_summary">{overview.slice(0, 180)}...</p>
+          <p className="data_summary_short">{overview.slice(0, 100)}...</p>
+          <RateStar />
         </div>
         {backdropurl_count > 0 && <img src={backdropurl} alt={title} className="data-backdrop" />}
       </Link>
@@ -111,5 +113,4 @@ import "./Content.css";
   };
   
   export default Data;
-
   //posterurl_count, backdropurl_count > 0 이미지 출력
