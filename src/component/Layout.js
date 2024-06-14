@@ -1,18 +1,17 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header.js";
+import Footer from "./Footer.js";
 import "../App.css";
+//layout 컴포넌트
 
-const Layout = ({children}) {
+const Layout = ({children}) => {
   return (
     <div className="App">
-      <Header />
+      <Header/>
       <div className="App-body">
-        <main className="App-content">
-          {children}
-        </main>
+      {children}    
       </div>
-      <Footer />
+       <Footer />
     </div>
   );
 }
@@ -20,7 +19,7 @@ const Layout = ({children}) {
 export default Layout;
 
 
-//function Layout({ children }) {
+//const Layout = ({children}) => {
 //   return (
 //     <div className="App">
 //       <Header />
