@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 대신 Router 사용
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js';
 
-//root요소 존재 않는경우, error출력
+// root 요소 존재하지 않는 경우, 에러 출력
 const rootElement = document.getElementById('root');
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <BrowserRouter>
+      <Router> {/* BrowserRouter 대신 Router 사용 */}
         <App />
-      </BrowserRouter>
+      </Router>
     </React.StrictMode>
   );
 } else {
   console.error("Root element is missing");
 }
 
-reportWebVitals();
+// 페이지 성능 지표 보고
+//reportWebVitals();
