@@ -1,10 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import RateStar from "./RateStar";
 import "./Content.css";
 
-//피쳐: id,title,runtime,release_date,certification,genre,origin_country,overview,director,actor,platform,rating_value,rating_count,posterurl_count,backdropurl_count,posterurl,backdropurl
-function Data({
+//피쳐: id,title,runtime,release_date,certification,genre,origin_country,overview,director,actor,platform,rating_value,rating_count,posterurl_count,backdropurl_count,posterurl,backdropurl,contentype,
+   function Data({
    id,
    title,
    runtime,
@@ -23,15 +24,25 @@ function Data({
    posterurl,
    backdropurl,
    contentype,
-})
-
-//contentype:1_movie, 2_content
-{
-    const dataTypeText = contentype === 1 ? "movie" : "content";
-  
-    return (
-      <Link
-        to={{
+}) //all, movie, series!!!
+   {
+   let dataTypeText;
+   switch (contentype) {
+      case 0:
+         dataTypeText = "all";
+         break;
+      case 1:
+         dataTypeText = "movie";
+         break;
+      case 2:
+         dataTypeText = "series";
+         break;
+      default:
+         dataTypeText = "unknown";            
+   }
+   
+   return (
+      <Link to={{
           pathname: `/${dataTypeText}/${id}`,
           state: {
             id,
@@ -55,20 +66,22 @@ function Data({
           },
         }}
         className="data-card"
-      >
-        <img src={posterurl} alt={title} />
+      > 
+      
+        {posterurl_count > 0 && <img src={posterurl} alt={title} />}
         <div className="Data">
           <h3 className="data__title">{title}</h3>
           <h5 className="data__year">{release_date}</h5>
           <ul className="data__genres">
             {genre.map((g, index) => (
               <li key={index} className="genres__genre">
-                {g}
+                  {Array.isArray(g) ? g.join(", ") : g} 
               </li>
             ))}
           </ul>
           <p className="data_summary">{overview.slice(0, 180)}...</p>
         </div>
+        {backdropurl_count > 0 && <img src={backdropurl} alt={title} className="data-backdrop" />}
       </Link>
     );
   }
@@ -79,7 +92,10 @@ function Data({
     runtime: PropTypes.number.isRequired,
     release_date: PropTypes.string.isRequired,
     certification: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(PropTypes.string).isRequired,
+    genre: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string)
+    ])).isRequired,
     origin_country: PropTypes.arrayOf(PropTypes.string).isRequired,
     overview: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
@@ -95,3 +111,5 @@ function Data({
   };
   
   export default Data;
+
+  //posterurl_count, backdropurl_count > 0 이미지 출력

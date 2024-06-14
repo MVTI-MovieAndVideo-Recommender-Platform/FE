@@ -1,19 +1,23 @@
-    import React from 'react';
-    import "./HomePage.css";
-    import Layout from '../component/Layout.js';
+   import React from 'react';
+   import "./HomePage.css";
+   import Layout from '../component/Layout.js';
+   import { Link } from 'react-router-dom';
+   import "./MVTITestPage.js";
     
-    const HomePage = () => {
-  return (
+   const HomePage = () => {
+      return (
       <Layout>
         <main>
-            <div className='MVTIContainer'>
-               {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
-               <div>
-               <button className='MVTITestButton'>
-                  <h3>MVTITestButton</h3>
-               </button>
-               </div>
-            </div>
+        <div className='MVTIContainer'>
+          {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
+          <div>
+            <Link to="/MVTITestPage">
+              <button className='MVTITestButton'>
+                <h3>MVTI 검사하기</h3>
+              </button>
+            </Link>
+          </div>
+        </div>
           <article>
             <h1>article 상단</h1>
             <section className='cards-container'>

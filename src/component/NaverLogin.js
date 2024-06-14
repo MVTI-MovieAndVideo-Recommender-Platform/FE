@@ -1,6 +1,6 @@
 //네이버 로그인 요청처리용 함수 정의
 const clientID = 'ENDOOH8nFrZvnFqcybc2';
-const redirectURI = encodeURIComponent('http://localhost:3000/login'); //변경 필요ex: encodeURIComponent('http://service.redirect.url/redirect');
+const redirectURI = encodeURIComponent('http://localhost:3000/'); //변경 필요ex: encodeURIComponent('http://service.redirect.url/redirect');
 const state = 'hLiDdL2uhPtsftcU'; //csrf방지 -> 랜덤 값 사용하기
 
 

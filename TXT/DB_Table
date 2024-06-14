@@ -88,8 +88,16 @@ CREATE TABLE recommendation (
     recommended_media_id INT UNSIGNED NOT NULL,
     recommendation_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+--------------------------------------------------------------------------
+contentype == 1 > 영화
 
+contentype == 2 > 시리즈
 
+이외의 모든 숫자는 영화 + 시리즈
+
+https://api.mvti.site/info
+swagger
+https://api.mvti.site/info/search?anything=%EC%95%84%EC%9D%B4%EC%96%B8%EB%A7%A8&isfilter=false&contentype=0&page=1&page_size=100
 
 ---------------------------------------------------------------------------
 

@@ -16,8 +16,6 @@ import { fetchGenres } from "./API/api.js";
 
 //장르 특정됨! -> button text->props로 받아오고, 장르 일치 -> dataGenre 또는 Genre로 보여주기!
 
-
-
 function Datagenre({data}) {
    const [genres, setGenres] = useState({});
 

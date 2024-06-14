@@ -11,49 +11,48 @@ import Logo_s3 from "../asset/img/logo-s3.png";
 function Footer() {
   return (
     <footer className="App-footer">
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="bg-white mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
            MVTI Movie & Video to All!
           </h2>
-         <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-6">
+         <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 md:grid-cols-6">
            <img
-             className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+             className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
              src={Logo_react}
              alt="React"
               width={50}
               height={50}
             />
             <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
               src={Logo_fastapi}
               alt="fastAPI"
               width={50}
               height={50}
             />
             <img
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
               src={Logo_s3}
               alt="AmazonS3"
               width={50}
               height={50}
             />
             <img
-              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
+              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
               src={Logo_kafka}
               alt="kafka"
               width={50}
               height={50}
             />
             <img
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
               src={Logo_aws}
               alt="AWS"
               width={50}
               height={50}
             />
             <img
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
               src={Logo_rds}
               alt="RDS"
               width={50}
@@ -61,7 +60,6 @@ function Footer() {
             />
           </div>
         </div>
-      </div>
    </footer>
   );
 }
