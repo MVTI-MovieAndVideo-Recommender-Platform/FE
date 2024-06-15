@@ -37,7 +37,6 @@ const genres = [
    { id: 32, name: ['전쟁', 'War & Politics'] },
    { id: 33, name: ['스포츠'] },
 ];
-const imageBaseURL = "";
 
 const fetchDataFromServer = async function(url, callback) {
    try{
@@ -54,9 +53,7 @@ const fetchContentData = async (callback) => {
    await fetchDataFromServer(url, callback);
  };
 
-export {imageBaseURL, fetchDataFromServer, fetchContentData, genres };
-
-//export { imageBaseURL, api_key, fetchDataFromServer, fetchGenres };
-//0609)async, await적용(가독성) => 0614)axios 적용(모듈)
+export {fetchDataFromServer, fetchContentData, genres };
+//axios->module
 //(회원)const api_key =  "81a8ac8cb265ba4a316d3b459a700e3b";
 //https://api.mvti.site/info/search?anything=%EC%95%84%EC%9D%B4%EC%96%B8%EB%A7%A8&isfilter=false&contentype=0&page=1&page_size=100

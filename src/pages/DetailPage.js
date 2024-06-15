@@ -13,6 +13,7 @@ function DetailPage() {
   }
 
   return (
+   <Layout>
    <div className="detail">
       <img src={poster} alt={title} />
       <h1>{title}</h1>
@@ -25,6 +26,7 @@ function DetailPage() {
       <Rating /> {/*reafctDom.render대신 컴포넌트로 사용!*/}
       <p>{summary}</p>
    </div>
+   </Layout>
  );
 }
 

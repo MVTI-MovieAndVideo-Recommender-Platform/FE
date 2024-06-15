@@ -5,7 +5,7 @@ import { fetchGenres } from "./API/api.js";
 //import { useParams } from "react-router-dom";
 //import axios from "axios";
 
-//useParams->URL 매개변수에서 genreId 호출-> 해당 장르의 데이터 호출
+//useParams->URL 매개변수에서 genreId() 호출-> 해당 장르의 데이터 호출!
 //fetchGenres-> 장르리스트 호출
 //axios -> API로부터 데이터 호출 => Content 컴포넌트로 랜더링
 
@@ -15,7 +15,6 @@ import { fetchGenres } from "./API/api.js";
 
 
 //장르 특정됨! -> button text->props로 받아오고, 장르 일치 -> dataGenre 또는 Genre로 보여주기!
-
 function Datagenre({data}) {
    const [genres, setGenres] = useState({});
 

@@ -3,7 +3,7 @@
    import Layout from '../component/Layout.js';
    import { Link } from 'react-router-dom';
    import "./MVTITestPage.js";
-    
+    //react icon + tailwindcss + daisyUI
    const HomePage = () => {
       return (
       <Layout>
@@ -22,12 +22,17 @@
             <h1>article 상단</h1>
             <section className='cards-container'>
                <div className='cards-recommeended'>
-                  <img className='ddbackground-card' src='/poster.jpg' alt='백_이미지'/>
-                  <div className='Data-card'>
-                     <svg></svg>
-                     <h3>제목:Data-card에서 제목읽어오기 </h3>
-                  </div>
-                  <div className='backdrop'></div>
+               <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+                 <div className="carousel-item">
+                  <div className="rounded-box"/>                  
+                   <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"  />
+                 </div> 
+                 
+                 <div className="carousel-item">
+                   <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" className="rounded-box" />
+                 </div> 
+
+               </div>
                </div>
             </section>
             <section className='cards-container'>
