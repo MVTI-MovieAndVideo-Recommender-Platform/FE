@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import Logo_aws from "../asset/img/logo-aws.png";
 import Logo_fastapi from "../asset/img/logo-fastapi.png";
 import Logo_kafka from "../asset/img/logo-kafka.png";
@@ -10,12 +9,12 @@ import Logo_s3 from "../asset/img/logo-s3.png";
 
 function Footer() {
   return (
-    <footer className="App-footer">
-        <div className="bg-white mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-center text-lg font-semibold leading-8 text-gray-900">
+    <footer className="bg-white dark:bg-gray-800 text-black dark:text-white p-3 fixed bottom-0 w-full">
+        <div className="bg-white dark:bg-gray-800 mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-center text-lg font-semibold leading-8 text-black dark:text-white">
            MVTI Movie & Video to All!
           </h2>
-         <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 md:grid-cols-6">
+         <div className="mx-auto grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 md:grid-cols-6">
            <img
              className="col-span-1 max-h-12 w-full object-contain lg:col-span-1"
              src={Logo_react}

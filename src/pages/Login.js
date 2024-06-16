@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getToken, setToken, removeToken } from "../utils/Authenticate"; // Authenticate.js에서 함수 가져오기
+import { getToken, setToken} from "../utils/Authenticate"; // Authenticate.js에서 함수 가져오기
 import React, { useState, useEffect, useCallback } from 'react';
 import { requestNaverLogin } from "../component/NaverLogin";
 import { requestKakaoLogin } from '../component/KakaoLogin';

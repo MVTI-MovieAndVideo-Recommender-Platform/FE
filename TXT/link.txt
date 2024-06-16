@@ -74,7 +74,7 @@ Real Favicon Generator: Real Favicon Generator에서 다양한 해상도와 플�
 헤더/레이아웃 배치 
 https://brunch.co.kr/@830bfa34e0894d6/25
 
-
+#아바타 편집기#
  - User Type 별 감성 필터 또는 아바타 기능으로 추가
  (npm install react-avatar-editor)
 	-  https://velog.io/@cherry_/ReactThree.js-%ED%8A%B9%EC%A0%95-GLTF-%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EA%B1%B0-GLTF%EC%97%90-type-%EB%84%A3%EA%B8%B0

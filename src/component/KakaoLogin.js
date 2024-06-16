@@ -1,5 +1,4 @@
 //import axios from "axios";//카카오 로그인 요청처리용 함수 정의
- 
 const Rest_api_key = '2eae58859131ba2e2305907af81ba954';
 const redirectURI = encodeURIComponent('https://mvti.site/login/auth'); 
 //const state = 'hLiDdL2uhPtsftcU'; //csrf방지 -> 랜덤 값 사용하기

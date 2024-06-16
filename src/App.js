@@ -6,7 +6,7 @@ import MyPage from './pages/MyPage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
 import SocialLogin from "./pages/Login.js"; // SocialLogin import
-import "./App.css";
+import Layout from "./component/Layout.js";
 
 export default function App() {
   // 로그인 상태 관리
@@ -31,9 +31,8 @@ export default function App() {
   }, [location]);
 
   return (
-    <>
+    <Layout>
       <Routes>
-        {/* 경로 정의 */}
         <Route path="/" element={<HomePage />} />
         <Route path="/mvti_Restage" element={<MVTITestPage />} />
         <Route path="/mvti_resultpage" element={<MVTIResultPage />} />
@@ -45,6 +44,6 @@ export default function App() {
           <Route path="/login" element={<SocialLogin />} />
         )}
       </Routes>
-    </>
+    </Layout>
   );
 }

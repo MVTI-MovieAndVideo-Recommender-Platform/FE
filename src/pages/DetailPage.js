@@ -1,7 +1,14 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
 import Rating from "../component/Rating.js";
+import Layout from '../component/Layout.js';
 //import { useParams, useLocation } from "react-router-dom";
+
+
+//mvti.site/banner/1/1
+//mvti.site/poster/1/1
+//mvti.site/thunbnail/1/1
+
 
 function DetailPage() {
 //  const { id } = useParams();

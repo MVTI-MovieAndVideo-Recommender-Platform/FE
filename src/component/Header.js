@@ -1,5 +1,4 @@
 import React,{useEffect, useState} from "react";
-//import "../App.css";
 import { Link } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import logo from "../asset/img/MVTI_logo.png"
@@ -22,7 +21,7 @@ const Header = () => {
    };
 
   return (
-   <header className="App-header bg-white dark:bg-gray-800 text-black dark:text-white">
+   <header className="bg-white dark:bg-gray-800 text-black dark:text-white fixed top-0 w-full z-50">
       <div className="flex justify-between items-center py-5 px-40 border-b border-gray-200 dark:border-gray-700">
          <Link to="/">
             <img src={logo} alt="MVTI_logo" className="h-20"/>
