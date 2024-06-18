@@ -1,66 +1,25 @@
-import axios from 'axios';
-import { getToken, setToken} from "../utils/Authenticate"; // Authenticate.js에서 함수 가져오기
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import { requestNaverLogin } from "../component/NaverLogin";
-import { requestKakaoLogin } from '../component/KakaoLogin';
+import { openKakaoLogin } from '../component/KakaoLogin';
 import "./Login.css";
 
+
 const SocialLogin = () => {
-    const [code, setCode] = useState(null);
-    const [state, setState] = useState(null);
-    //naver or kakao
-    const [provider,setProvider] = useState(null);
-
-    useEffect(() => {
-        const params = new URL(document.location).searchParams;
-        setCode(params.get("code"));
-        setState(params.get("state"));
-        setProvider(params.get("provider"));
-    }, []);
-
-    const get_access_code = useCallback(async () => {
-        console.log(code);
-        console.log(state);
-        console.log(provider);
-        if (code && provider) {
-            await axios.post("http://localhost:3000/login/", {}, {
-                headers: {
-                    accesstoken: code,
-                    state: state,
-                    provider: provider//로그인제공자 정보
-                }
-            }).then(response => {
-                console.log("response headers: ",response.headers); //응답 헤더 확인
-                if (!getToken()) {
-                    const myToken = { jwt: response.headers.jwt };
-                    setToken(myToken); // 로컬 스토리지에 저장
-                }
-            }).catch(error => {
-                console.error(error);
-            });
-        }
-    }, [code, state, provider]);
-
-    useEffect(() => {
-        if (code &&provider) {
-            get_access_code();
-        }
-    }, [code, state, provider, get_access_code]);
 
     return (
-        <>
-            <h5>소셜 아이디로 간편하게!</h5>
-            <div className="flex justify-center mb-4">
-                <button className="N_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={requestNaverLogin}></button>
-            </div>
-            <div className="flex justify-center">
-                <button className="K_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={requestKakaoLogin}></button>
-            </div>
-        </>
+    <main className='flex flex-col items-center p-10 mb-10'>
+        <h5>소셜 아이디로 간편하게!</h5>
+        <div className="flex justify-center mb-4">
+            <button className="N_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={requestNaverLogin}></button>
+        </div>
+        <div className="flex justify-center">
+            <button className="K_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" onClick={openKakaoLogin}></button>
+        </div>
+    </main>
     )
 }
-
 export default SocialLogin;
+
 //
 ////컴포넌트 모달을 열고, 네이버 로그인 요청 처리
 //

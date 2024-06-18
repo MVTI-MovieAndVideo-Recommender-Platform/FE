@@ -1,38 +1,26 @@
-import React, { useEffect, useRef, useCallback } from "react";
-import "./Modal.css";
 //toggleOpen:모달 컴포넌트 열고 닫음
 
-export const Modal = ({isOpen,toggleOpen,children,}) => {
-   const modalRef = useRef(null);
-
-   const handleClickOutside = useCallback((event) => {
-      if(modalRef.current && !modalRef.current.contains(event.target)) {
-         toggleOpen();
-      }
-   },[toggleOpen]);
-
-   useEffect(() => {
-      if(isOpen) {
-         document.addEventListener('mousedown', handleClickOutside);
-      } else {
-         document.removeEventListener('mousedown',handleClickOutside);
-      }
-   
-
-      return () => {
-         document.removeEventListener('mousedown',handleClickOutside);
-      };
-   }, [isOpen, handleClickOutside]);
-
-if (!isOpen){
-   return null;
+const Modal = () => {
+   return (
+      //flex flex-col items-center p-10 mb-10
+      <section className='flex flex-col items-center p-10 mb-10'>
+         <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal1</button>
+            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+               <div className="modal-box">
+                  <h3 className="font-bold text-lg">Hello!</h3>
+                  <p className="py-4">ESC key/button/outside of modal</p>
+                  <div className="modal-action">
+                     <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Close</button>
+                     </form>
+                  </div>
+               </div>
+               <form method="dialog" className="modal-backdrop">
+                  <button>close</button>
+               </form>
+            </dialog>
+      </section>
+);
 }
-return (
-   //modal-overlay,modal-content
-   <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-   <div className="bg-white p-8 rounded-lg w-full max-w-lg" ref={modalRef}>
-     {children}
-   </div>
- </div>
-)};
-
+export default Modal;

@@ -1,11 +1,12 @@
 "use strict";
 const axios = require('axios');
 
-//https://api.mvti.site/member/docs
+//https://api.mvti.site/member/docs //
 //https://api.mvti.site/info/docs
 //https://api.mvti.site/review/docs
 
-
+//api url:
+//https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
 
 //고유장르 정의
 const genres = [

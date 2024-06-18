@@ -32,7 +32,7 @@ const Header = () => {
                <Link to="/mypage" className="hover:underline">MyPage</Link>
                <Link to="/content/:id"  className="hover:underline">DetailPage</Link>
                < Link to="/login"  className="hover:underline">LogInModal</Link>
-            
+              < Link to="/login_modal" className="hover:underline">Modal_Login</Link>
                <Link to="/mvti_result"  className="hover:underline">MVTIResultPage</Link>
                <Link to="/mvti_test"  className="hover:underline">MVTITestPage</Link>
             </nav>

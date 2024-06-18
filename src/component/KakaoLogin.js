@@ -1,73 +1,78 @@
-//import axios from "axios";//카카오 로그인 요청처리용 함수 정의
+import axios from 'axios';
+import { useEffect} from 'react';
+import { useSetRecoilState } from 'recoil';
+import { userState } from './state/atoms';
+import { useNavigate } from 'react-router-dom';
+
 const REST_API_KEY = '2eae58859131ba2e2305907af81ba954';
 const REDIRECT_URI = 'http://localhost:3000/login/auth';
-//const REDIRECT_URI = encodeURIComponent('http://localhost:3000/login/auth?provider=kakao'); 
+//const REQUEST_ADDRESS = 'http://localhost:3000/';
+const REQUEST_ADDRESS = 'https://api.mvti_test/member/login'; // 백엔드 서버 주소
+const kakaoLoginAPI = `https://kauth.kakao.com/oauth/authorize?
+   response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
 
-//const state = 'hLiDdL2uhPtsftcU'; //csrf방지 -> 랜덤 값 사용하기
+//login폼 버튼클릭 시 실행되는 함수
+export const openKakaoLogin  = () => {
+   window.open(kakaoLoginAPI, "_self");
+};
 
-export const KakaoLogin_a = () => {
-   const encodedRedirectUri = encodeURIComponent(`${REDIRECT_URI}`);
-   const kakaoLoginURL = 
-`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${encodedRedirectUri}`; 
-   window.location.href = kakaoLoginURL;
+function KakaoLogin () {
+   const setUser = useSetRecoilState(userState);
+   const navigate = useNavigate();
+
+   // 해당 페이지 로딩시 url에 인가코드가 담김
+   useEffect(() => {
+      //인가코드 추출 변수 생성_현재 url주소 가짐
+      const url = new URL(window.location.href);
+      
+      //만든 URL(newURL)에서 'code= ' 써진 키값 찾고 return value!
+      const code = url.searchParams.get("code");
+      
+      if (code) {
+         axios.get(`${REQUEST_ADDRESS}auth/kakao?code=${code}`).then((res) => {
+            //ok response확인 -> 유저로그인 , 토큰 브라우저에 저장
+            //url로 서버에서 유저정보 요청   
+            localStorage.setItem("token",res.data.token);
+            //"code" -> 백엔드의 카카오 로그인 주소로 보냄
+      
+            //REQUEST_ADDRESS : 내 앱 서버 주소. 컨트롤러에 매핑된 주소로 인가코드가 서버로 넘어간다.
+            axios.get(`${REQUEST_ADDRESS}userinfo`, {
+               headers:{
+                  //header에 토큰 저장  
+                  Authorization: `Bearer ${res.data.token}`,
+               },
+            })
+            //서버 : 유효성 검사->확인 후 유저데이터 전달
+            //FE :
+            //const setUser = useSetRecoilState(userState);
+            //recoilState -> 유저 데이터 저장 후 dashboard로 이동시키기!
+            .then((response) => {
+               setUser(response.data);
+               navigate("/dashboard");
+            });
+         });   
+      }
+   },[navigate,setUser]);
+   
+   return null;
 }
+export default KakaoLogin;
 
-export const requestKakaoLogin = () => {
-//user K로그인 페이지로 리다이렉트->카카오 로그인 인증요청
-// 카카오 로그인 URL 생성
-//const encodedRedirectUri = encodeURIComponent(`${REDIRECT_URI}?provider=kakao`);
-const encodedRedirectUri = encodeURIComponent(`${REDIRECT_URI}`);
-
-const kakaoLoginURL = 
-`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${encodedRedirectUri}`; 
-   window.location.href = kakaoLoginURL;
-
-   const kakaoLoginURLs = 
-   `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${encodedRedirectUri}`; 
-      window.location.href = kakaoLoginURLs;   
-   
-   
-} 
-
-//발급요청) https://kauth.kakao.com/oauth/authorize?response_type=code&client_id={클라이언트id}&redirect_uri={리다이렉트uri}
-//엑세스토큰) https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={클라이언트id}&redirect_uri={리다이렉트uri}&code={발급코드} 헤더 Content-type:application/x-www-form-urlencoded
-
-//`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
-
-
-//url에서 provider파라미터 제외하고 나중에 추가하기로!
-//https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}'
-
-
-//http://localhost:3000/login/auth
-//http://localhost:3000/login
-
-//등록된 도메인:
-//https://mvti.site/login/auth
-//http://localhost:3000/login/auth
-
-//post -> get
-//수정 전_https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirectURI}&response_type=code
-
-
-//로그인 버튼_형식 체크 및 css 적용
-//mvti TEST! 앱 키(rest API) : 2eae58859131ba2e2305907af81ba954/ 
-//Redirect URI:http://localhost:3000/login
-//버튼: 컨테이너+심볼+라벨
-//컨테이너	#FEE500 심볼	#000000 레이블	#000000 85%
-//굴곡 12px
-
-
-//const Rest_api_key = '81a8ac8cb265ba4a316d3b459a700e3b';
-
-//const redirectURI = encodeURIComponent('http://localhost:3000/'); //변경 필요ex: encodeURIComponent('http://service.redirect.url/redirect');
-//
+         
+            
+//export const KakaoLogin_a = () => {
+//   const encodedRedirectUri = encodeURIComponent(`${REDIRECT_URI}`);
+//   const kakaoLoginURL = 
+//`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${encodedRedirectUri}`; 
+//   window.location.href = kakaoLoginURL;
+//}
 //
 //export const requestKakaoLogin = () => {
+////user K로그인 페이지로 리다이렉트->카카오 로그인 인증요청
+//// 카카오 로그인 URL 생성
+//const encodedRedirectUri = encodeURIComponent(`${REDIRECT_URI}`);
 //
 //const kakaoLoginURL = 
-//`https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirectURI}&response_type=code`;
-//
+//`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${encodedRedirectUri}`; 
 //   window.location.href = kakaoLoginURL;
 //} 
-//
