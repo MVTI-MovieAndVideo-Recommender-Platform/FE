@@ -8,39 +8,44 @@ import "./Login.css";
 const SocialLogin = () => {
     const [code, setCode] = useState(null);
     const [state, setState] = useState(null);
+    //naver or kakao
+    const [provider,setProvider] = useState(null);
 
     useEffect(() => {
         const params = new URL(document.location).searchParams;
         setCode(params.get("code"));
         setState(params.get("state"));
+        setProvider(params.get("provider"));
     }, []);
 
     const get_access_code = useCallback(async () => {
-        if (code && state) {
-            await axios.post("https://mvti.site/login/", {
-            }, {
+        console.log(code);
+        console.log(state);
+        console.log(provider);
+        if (code && provider) {
+            await axios.post("http://localhost:3000/login/", {}, {
                 headers: {
                     accesstoken: code,
                     state: state,
-                    provider: "naver"
+                    provider: provider//로그인제공자 정보
                 }
             }).then(response => {
-                console.log(response);
+                console.log("response headers: ",response.headers); //응답 헤더 확인
                 if (!getToken()) {
                     const myToken = { jwt: response.headers.jwt };
                     setToken(myToken); // 로컬 스토리지에 저장
                 }
             }).catch(error => {
-                console.log(error);
+                console.error(error);
             });
         }
-    }, [code, state]);
+    }, [code, state, provider]);
 
     useEffect(() => {
-        if (code) {
+        if (code &&provider) {
             get_access_code();
         }
-    }, [code, get_access_code]);
+    }, [code, state, provider, get_access_code]);
 
     return (
         <>

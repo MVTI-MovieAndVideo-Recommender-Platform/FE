@@ -1,37 +1,17 @@
 import React from "react";
-import Header from "./Header.js";
-import Footer from "./Footer.js";
-//layout 컴포넌트
+import Header from "./Header";
+import Footer from "./Footer";
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-    <wrap>
-      <Header/>
-      <div>
-         {children}    
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <div className="flex-1 mt-16 mb-20">
+        {children}
       </div>
-       <Footer />
-    </wrap>
+      <Footer />
+    </div>
   );
-}
+};
 
 export default Layout;
-
-//<div className="flex flex-col min-h-screen text-center">
-
-
-//const Layout = ({children}) => {
-//   return (
-//     <div className="App">
-//       <Header />
-//       <div className="App-body">
-//         <main className="App-content">
-//           {children}
-//         </main>
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-// }
-// 
-// export default Layout;

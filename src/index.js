@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 대
 import './index.css';
 import App from './App.js';
 
+
 // root 요소 존재하지 않는 경우, 에러 출력
 const rootElement = document.getElementById('root');
 if (rootElement) {

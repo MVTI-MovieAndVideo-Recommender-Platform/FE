@@ -1,6 +1,12 @@
 "use strict";
 const axios = require('axios');
 
+//https://api.mvti.site/member/docs
+//https://api.mvti.site/info/docs
+//https://api.mvti.site/review/docs
+
+
+
 //고유장르 정의
 const genres = [
    { id: 1, name: ['코미디', '시트콤' ] },

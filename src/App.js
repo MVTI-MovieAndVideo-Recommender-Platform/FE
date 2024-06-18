@@ -34,10 +34,11 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/mvti_Restage" element={<MVTITestPage />} />
-        <Route path="/mvti_resultpage" element={<MVTIResultPage />} />
+        <Route path="/mvti_test" element={<MVTITestPage />} />
+        <Route path="/mvti_result" element={<MVTIResultPage />} />
         <Route path="/content/:id" element={<DetailPage />} />
         <Route path="/login" element={<SocialLogin />} />
+        <Route path="/login/auth" element={<SocialLogin />} /> {/* 추가 */}
         {isLoggedIn ? (
           <Route path="/mypage" element={<MyPage />} />
         ) : (
@@ -47,3 +48,4 @@ export default function App() {
     </Layout>
   );
 }
+

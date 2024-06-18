@@ -21,20 +21,22 @@ const Header = () => {
    };
 
   return (
-   <header className="bg-white dark:bg-gray-800 text-black dark:text-white fixed top-0 w-full z-50">
-      <div className="flex justify-between items-center py-5 px-40 border-b border-gray-200 dark:border-gray-700">
+    //나중에 햄버거바!
+   <header className="bg-white dark:bg-gray-800 text-black dark:text-white p-3 fixed top-0 w-full z-50">
+      <div className="flex justify-between items-center py-2 px:4 md:px-40 border-b border-gray-100 dark:border-gray-700">
          <Link to="/">
-            <img src={logo} alt="MVTI_logo" className="h-20"/>
+            <img src={logo} alt="MVTI_logo" className="h-10"/>
          </Link>
             <nav className="App-header-navbar flex space-x-4">
                <Link to="/"  className="hover:underline">HomePage</Link>
+               <Link to="/mypage" className="hover:underline">MyPage</Link>
                <Link to="/content/:id"  className="hover:underline">DetailPage</Link>
-               < Link to="/Login"  className="hover:underline">LogInModal</Link>
+               < Link to="/login"  className="hover:underline">LogInModal</Link>
             
-               <Link to="/MVTIResultPage"  className="hover:underline">MVTIResultPage</Link>
-               <Link to="/MVTITestPage"  className="hover:underline">MVTITestPage</Link>
+               <Link to="/mvti_result"  className="hover:underline">MVTIResultPage</Link>
+               <Link to="/mvti_test"  className="hover:underline">MVTITestPage</Link>
             </nav>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-4">
           <button
             onClick={toggleColorMode}
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600"

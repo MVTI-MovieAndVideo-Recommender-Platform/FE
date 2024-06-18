@@ -1,7 +1,6 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
 import Rating from "../component/Rating.js";
-import Layout from '../component/Layout.js';
 //import { useParams, useLocation } from "react-router-dom";
 
 
@@ -20,8 +19,11 @@ function DetailPage() {
   }
 
   return (
-   <Layout>
-   <div className="detail">
+   <section className='flex flex-col items-center p-10 mb-10'>
+      <div className="detail">  
+         <h1>Data_Detail Page</h1>
+          {/*data 디테일 페이지 +포스터/백드롭/별점*/}
+         </div>
       <img src={poster} alt={title} />
       <h1>{title}</h1>
       <h3>{year}</h3>
@@ -32,8 +34,8 @@ function DetailPage() {
       </ul>
       <Rating /> {/*reafctDom.render대신 컴포넌트로 사용!*/}
       <p>{summary}</p>
-   </div>
-   </Layout>
+   </section>
+
  );
 }
 

@@ -6,17 +6,32 @@
 
    const HomePage = () => {
       return (
-        <section className='flex flex-col items-center p-4'>
+        
+        <section className='flex flex-col items-center p-10 mb-10'>
         <div className='MVTIContainer'>
           {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
           <div>
-            <Link to="/MVTITestPage">
+            <Link to="/mvti_test">
               <button className="btn w-64 rounded-full"> MVTI 검사하기</button>
             </Link>
           </div>
         </div>
-          <article>
+          <article className='items-center'>
             <h1>article 상단</h1>
+            <section className='cards-container'>
+              <div className='cards-recommeended'>
+                <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+                  <div className="cards-carousel">
+                    <div className="data-card"/>                  
+                      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt='img1' className="rounded-box" />
+                  </div>    
+                    <div className="data-card">
+                      <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt='img2' className="rounded-box" />
+                    </div> 
+                </div>
+              </div>
+            </section>
+            <br/>
             <section className='cards-container'>
               <div className='cards-recommeended'>
                 <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
@@ -29,16 +44,6 @@
                   </div> 
                 </div>
               </div>
-            </section>
-            <section className='cards-container'>
-               <div className='cards-popular'>
-                  <img className='ddbackground-card' src='https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg' alt='백_이미지'/>
-                  <div className='card-data'>
-                     <svg></svg>
-                     <h3>제목: </h3>
-                  </div>
-                  <div className='backdrop'></div>
-               </div>
             </section>
           </article>
         </section>
