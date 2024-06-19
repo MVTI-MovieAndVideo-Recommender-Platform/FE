@@ -56,7 +56,9 @@ const KakaoCallbackPage = () => {
             // 정리 함수
             if (typeof destroy === 'function') {
                 await destroy();
-                window.location.replace("http://localhost:3000/");
+                window.location.replace("http://localhost:3000");
+                //http://localhost:3000/
+                //https://mvti.site
             } else {
                 console.warn('destroy is not a function');
             }

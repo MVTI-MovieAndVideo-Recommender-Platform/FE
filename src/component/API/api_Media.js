@@ -1,14 +1,6 @@
 "use strict";
 const axios = require('axios');
 
-//https://api.mvti.site/member/docs //
-//https://api.mvti.site/info/docs
-//https://api.mvti.site/review/docs
-
-//api url:
-//https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
-
-//고유장르 정의
 const genres = [
    { id: 1, name: ['코미디', '시트콤' ] },
    { id: 2, name: ['드라마'] },
@@ -55,12 +47,49 @@ const fetchDataFromServer = async function(url, callback) {
       }
    };
 // 새로운 fetch 함수 추가
-const fetchContentData = async (callback) => {
+const fetchMediaData = async (callback) => {
    const url = 'https://api.mvti.site/info/search?countries=%ED%95%9C%EA%B5%AD&countries=%EB%AF%B8%EA%B5%AD&isfilter=true&contentype=0&page=1';
    await fetchDataFromServer(url, callback);
  };
 
-export {fetchDataFromServer, fetchContentData, genres };
-//axios->module
-//(회원)const api_key =  "81a8ac8cb265ba4a316d3b459a700e3b";
+export {fetchDataFromServer, fetchMediaData, genres };
+
+
+//info/
+//info/media/1 (숫자)
+//mvti.site/banner/1/1
+//mvti.site/poster/1/1
+//mvti.site/thunbnail/1/1
+//https://api.mvti.site/member/docs
+//https://api.mvti.site/info/docs
+//https://api.mvti.site/review/docs
+//https://api.mvti.site/banner/
+//api url:
+//https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
 //https://api.mvti.site/info/search?anything=%EC%95%84%EC%9D%B4%EC%96%B8%EB%A7%A8&isfilter=false&contentype=0&page=1&page_size=100
+
+//고유장르 정의
+//미디어 DB - type ENUM('movie', 'series')
+//CREATE TABLE media (
+//   id INT UNSIGNED NOT NULL PRIMARY KEY,
+//   type ENUM('movie', 'series') NOT NULL,
+//   title VARCHAR(255) NOT NULL,
+//   runtime SMALLINT UNSIGNED NOT NULL,
+//   release_date DATE NOT NULL,
+//   certification VARCHAR(255) DEFAULT NULL,
+//   genre VARCHAR(255) NOT NULL,
+//   origin_country VARCHAR(255) NOT NULL,
+//   overview VARCHAR(2000) NOT NULL,
+//   director VARCHAR(255) DEFAULT NULL,
+//   actor VARCHAR(1000) DEFAULT NULL,
+//   platform VARCHAR(255) NOT NULL,
+//   rating_value DECIMAL(2, 1) UNSIGNED NOT NULL CHECK (
+//       rating >= 0
+//       AND rating <= 5
+//   ),
+//   rating_count INT UNSIGNED NOT NULL,
+//   posterurl_count TINYINT UNSIGNED DEFAULT 0,
+//   backdropurl_count TINYINT UNSIGNED DEFAULT 0,
+//   posterurl VARCHAR(1000) DEFAULT NULL,
+//   backdropurl VARCHAR(1000) DEFAULT NULL
+//);

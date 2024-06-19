@@ -12,7 +12,7 @@
   const closeModal = () => setIsModalOpen(false);
    
    return (      
-      <section className='flex flex-col items-center p-10 mb-10'>
+      <section className='flex flex-col items-center p-10 mb-10 bg-white dark:bg-gray-800 text-black dark:text-white'>
          <div className='ModalLogin'>
             <div>
                <button className='btn w-64 rounded-full' onClick={openModal}>모달_로그인</button>  

@@ -19,23 +19,25 @@ function DetailPage() {
   }
 
   return (
-   <section className='flex flex-col items-center p-10 mb-10'>
+   <section className='flex flex-col items-center p-10 mb-10 bg-white dark:bg-gray-800 text-black dark:text-white'>
+
       <div className="detail">  
          <h1>Data_Detail Page</h1>
-          {/*data 디테일 페이지 +포스터/백드롭/별점*/}
-         </div>
+         {/*data 디테일 페이지 +포스터/백드롭/별점*/}
+      </div>
       <img src={poster} alt={title} />
-      <h1>{title}</h1>
-      <h3>{year}</h3>
-      <ul>
-         {genres.map((genre,index) => (
+         <h1>{title}</h1>
+         <h3>{year}</h3>
+         <ul>
+            {genres.map((genre,index) => (
             <li key={index}>{genre}</li>
-         ))}
-      </ul>
+            ))}
+         </ul>
       <Rating /> {/*reafctDom.render대신 컴포넌트로 사용!*/}
-      <p>{summary}</p>
-   </section>
+         <p>{summary}</p>
 
+
+   </section>
  );
 }
 

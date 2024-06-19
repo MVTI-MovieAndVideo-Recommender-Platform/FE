@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from "react";
 import PropTypes from "prop-types";
+import Media from "./Media.js";
 import Data from "./Data.js";
 import { fetchGenres } from "./API/api.js";
 //import { useParams } from "react-router-dom";
@@ -15,14 +16,14 @@ import { fetchGenres } from "./API/api.js";
 
 
 //장르 특정됨! -> button text->props로 받아오고, 장르 일치 -> dataGenre 또는 Genre로 보여주기!
-function Datagenre({data}) {
+function Mediagenre({media}) {
    const [genres, setGenres] = useState({});
 
    useEffect(() => {
       fetchGenres(setGenres);
    }, []);
 
-   const groupedDataByGenre = data.reduce((acc,item) => {
+   const groupedMediaByGenre = media.reduce((acc,item) => {
       item.genre.forEach((g) => {
          if (!acc[g]) acc[g] = [];
          acc[g].push(item);
@@ -32,12 +33,12 @@ function Datagenre({data}) {
 
    return(
       <div>
-         {Object.keys(groupedDataByGenre).map((genre) => (
+         {Object.keys(groupedMediaByGenre).map((genre) => (
             <section key={genre} className="genre_action">
             <h2>{genres[genre]}</h2>
-            <div className="data-list">
-               {groupedDataByGenre[genre].map((item) => (
-                  <data key={item.id} {...item} />
+            <div className="media-list">
+               {groupedMediaByGenre[genre].map((item) => (
+                  <media key={item.id} {...item} />
                ))}
             </div>
          </section>
@@ -45,8 +46,8 @@ function Datagenre({data}) {
       </div>
    );
 }
-Datagenre.PropTypes = 
+Mediagenre.PropTypes = 
    {
-   data:PropTypes.arrayOf(PropTypes.object).isRequired,
+      media:PropTypes.arrayOf(PropTypes.object).isRequired,
    };
-export default Datagenre;
+export default Mediagenre;
