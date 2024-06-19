@@ -1,5 +1,10 @@
 "use strict";
 const axios = require('axios');
+//R server
+//검색, 검사시 추천리스트
+//:https://api.mvti.site/info/docs#/default/test__get
+//https://api.mvti.site/info/docs#/default/get_search_search_get
+
 
 const genres = [
    { id: 1, name: ['코미디', '시트콤' ] },
@@ -56,14 +61,14 @@ export {fetchDataFromServer, fetchMediaData, genres };
 
 
 //info/
-//info/media/1 (숫자)
+//mvti.site/info/media/1 (숫자)
 //mvti.site/banner/1/1
 //mvti.site/poster/1/1
 //mvti.site/thunbnail/1/1
 //https://api.mvti.site/member/docs
 //https://api.mvti.site/info/docs
 //https://api.mvti.site/review/docs
-//https://api.mvti.site/banner/
+//https://mvti.site/banner/(id)/(count)
 //api url:
 //https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
 //https://api.mvti.site/info/search?anything=%EC%95%84%EC%9D%B4%EC%96%B8%EB%A7%A8&isfilter=false&contentype=0&page=1&page_size=100

@@ -93,4 +93,5 @@ import { genres } from "./API/api_Media.js";
       </Link>
     );
   }
+  export default Media;
   
