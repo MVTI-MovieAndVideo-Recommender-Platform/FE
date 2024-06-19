@@ -1,13 +1,24 @@
-   import React from 'react';
+   import React,{useState} from 'react';
    import { Link } from 'react-router-dom';
-   
+   import ModalLogin from '../component/ModalLogin';
   //import "./MVTITestPage.js";
   //react icon + tailwindcss + daisyUI
 
+
    const HomePage = () => {
-      return (
-        
-        <section className='flex flex-col items-center p-10 mb-10'>
+      const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+   
+   return (      
+      <section className='flex flex-col items-center p-10 mb-10'>
+         <div className='ModalLogin'>
+            <div>
+               <button className='btn w-64 rounded-full' onClick={openModal}>모달_로그인</button>  
+            </div>
+         </div>
+         <ModalLogin isOpen={isModalOpen} onClose={closeModal} />
         <div className='MVTIContainer'>
           {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
           <div>

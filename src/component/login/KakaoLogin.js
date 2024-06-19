@@ -1,9 +1,3 @@
-import axios from 'axios';
-import { useEffect} from 'react';
-import { useSetRecoilState } from 'recoil';
-import { userState } from './state/atoms';
-import { useNavigate } from 'react-router-dom';
-
 //login폼 버튼클릭 시 실행되는 함수. KakaoAuthRedirect컴포넌트로 이동
 // window.location 변경해서 KakaoAuthRedirect로 이동한다
 export const openKakaoLogin  = () => {

@@ -7,10 +7,15 @@ import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
+
 import SocialLogin from "./pages/SocialLogin.js"; // SocialLogin import
-import KakaoAuthRedirect from './component/KakaoAuthRedirect';
-import KakaoCallbackPage from './component/KakaoCallbackPage';
+import NaverAuthRedirect from './component/login/NaverAuthRedirect.js';
+import NaverCallbackPage from './component/login/NaverCallbackPage.js';
+import KakaoAuthRedirect from './component/login/KakaoAuthRedirect.js';
+import KakaoCallbackPage from './component/login/KakaoCallbackPage.js';
+
 import Layout from "./component/Layout.js";
+
 import ProtectedRoute from './component/state/ProtectedRoute.js';
 import GuestRoute from './component/state/GuestRoute.js';
 
@@ -40,6 +45,8 @@ export function App() {
           </ProtectedRoute>
         } />
         {/* 추가 */}
+        <Route path="/login/naver" element={<NaverAuthRedirect />} />
+        <Route path="/login/naver/callback" element={<NaverCallbackPage />} />
         <Route path="/kakao-auth-redirect" element={<KakaoAuthRedirect />} />
         <Route path="/login/kakao/callback" element={<KakaoCallbackPage />} />        
       </Routes>

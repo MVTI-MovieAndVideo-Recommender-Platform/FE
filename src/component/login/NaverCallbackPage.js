@@ -23,7 +23,7 @@ const NaverCallbackPage = () => {
 
         const PostData = async () => {
             try {
-                const response = await axios.post("https://api.mvti/member/login/naver", {}, {
+                const response = await axios.post("https://api.mvti.site/member/login/naver", {}, {
                     headers: {
                         'code': code,
                         'state': state,
