@@ -1,9 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
-import logo from "../asset/img/MVTI_logo.png"
-//import { RiRobot2Line } from "react-icons/ri";
-    //react icon + tailwindcss + daisyUI
+import logo from "../asset/img/MVTI_logo.png";
 
 const Header = () => {
    const [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,8 +29,7 @@ const Header = () => {
                <Link to="/"  className="hover:underline">HomePage</Link>
                <Link to="/mypage" className="hover:underline">MyPage</Link>
                <Link to="/content/:id"  className="hover:underline">DetailPage</Link>
-               < Link to="/login"  className="hover:underline">LogInModal</Link>
-              < Link to="/login_modal" className="hover:underline">Modal_Login</Link>
+               < Link to="/login"  className="hover:underline">SocialLogin</Link>
                <Link to="/mvti_result"  className="hover:underline">MVTIResultPage</Link>
                <Link to="/mvti_test"  className="hover:underline">MVTITestPage</Link>
             </nav>

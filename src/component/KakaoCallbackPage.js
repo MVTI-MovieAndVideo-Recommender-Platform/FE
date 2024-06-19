@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import   axios  from 'axios';
 //쿼리 파라미터 추출(fetchData), 서버 요청(PostData), 이 둘을 종합하여 실행하는 콜백(destroy) 함수
 
 //쿼리 파라미터에서 access_token을 직접 추출
@@ -26,7 +26,8 @@ const KakaoCallbackPage = () => {
 
         const PostData = async () => {
             console.log("보낸다잉");
-            await axios.post("https://api.mvti/member/login/kakao", {}, {
+            console.log(access_token);
+            await axios.post("https://api.mvti.site/member/login/kakao", {}, {
                 headers: {
                     'access_token': access_token
                 }
@@ -35,6 +36,7 @@ const KakaoCallbackPage = () => {
                 localStorage.setItem('jwt', JSON.stringify(response.headers.jwt));
 
             }).catch(response => {
+               console.log("잘하자잉")
                 console.log(response)
             });
         };

@@ -8,12 +8,11 @@ import MyPage from './pages/MyPage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
 import SocialLogin from "./pages/SocialLogin.js"; // SocialLogin import
-import KakaoAuthRedirect from './components/KakaoAuthRedirect';
-import KakaoCallbackPage from './components/KakaoCallbackPage';
+import KakaoAuthRedirect from './component/KakaoAuthRedirect';
+import KakaoCallbackPage from './component/KakaoCallbackPage';
 import Layout from "./component/Layout.js";
 import ProtectedRoute from './component/state/ProtectedRoute.js';
-import GuestRoute from './component//state/GuestRoute.js';
-//import LoginModal from "./pages/LoginModal.js";
+import GuestRoute from './component/state/GuestRoute.js';
 
 export function App() {
 
@@ -24,6 +23,7 @@ export function App() {
         <Route path="/mvti_test" element={<MVTITestPage />} />
         <Route path="/mvti_result" element={<MVTIResultPage />} />
         <Route path="/content/:id" element={<DetailPage />} />
+        
         <Route path="/login" element={
           <GuestRoute>
             <SocialLogin />
@@ -41,7 +41,7 @@ export function App() {
         } />
         {/* 추가 */}
         <Route path="/kakao-auth-redirect" element={<KakaoAuthRedirect />} />
-        <Route path="/member/login/kakao/callback" element={<KakaoCallbackPage />} />        
+        <Route path="/login/kakao/callback" element={<KakaoCallbackPage />} />        
       </Routes>
     </Layout>
   );
