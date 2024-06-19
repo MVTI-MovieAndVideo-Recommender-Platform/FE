@@ -1,41 +1,21 @@
 import React, { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import { RecoilRoot,useSetRecoilState } from 'recoil'; // RecoilRoot import
+import  { BrowserRouter as Router, Routes, Route }  from "react-router-dom";
+import { RecoilRoot } from 'recoil'; // RecoilRoot import
 import {userState} from './component/state/atoms.js';
 import DetailPage from './pages/DetailPage.js';
 import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
-import SocialLogin from "./pages/Login.js"; // SocialLogin import
+import SocialLogin from "./pages/SocialLogin.js"; // SocialLogin import
+import KakaoAuthRedirect from './components/KakaoAuthRedirect';
+import KakaoCallbackPage from './components/KakaoCallbackPage';
 import Layout from "./component/Layout.js";
-
 import ProtectedRoute from './component/state/ProtectedRoute.js';
 import GuestRoute from './component//state/GuestRoute.js';
-import LoginModal from "./pages/LoginModal.js";
+//import LoginModal from "./pages/LoginModal.js";
 
 export function App() {
-  // 로그인 상태 관리
-  const location = useLocation();
-  const setUser = useSetRecoilState(userState);
-
-  useEffect(() => {
-    // URL 파라미터에서 JWT 추출
-    const urlParams = new URLSearchParams(location.search);
-    const jwtToken = urlParams.get('jwt');
-
-    if (jwtToken) {
-      sessionStorage.setItem('jwt_token', jwtToken);
-      setUser({ jwt: jwtToken });
-      // URL 정리
-      window.history.replaceState({}, document.title, "/");
-    } else {
-      const token = sessionStorage.getItem('jwt_token');
-      if (token) {
-        setUser({jwt:token});
-      }
-    }
-  }, [location,setUser]);
 
   return (
     <Layout>
@@ -44,7 +24,6 @@ export function App() {
         <Route path="/mvti_test" element={<MVTITestPage />} />
         <Route path="/mvti_result" element={<MVTIResultPage />} />
         <Route path="/content/:id" element={<DetailPage />} />
-        <Route path="/login_modal" element={<LoginModal />} />
         <Route path="/login" element={
           <GuestRoute>
             <SocialLogin />
@@ -61,7 +40,8 @@ export function App() {
           </ProtectedRoute>
         } />
         {/* 추가 */}
-        
+        <Route path="/kakao-auth-redirect" element={<KakaoAuthRedirect />} />
+        <Route path="/member/login/kakao/callback" element={<KakaoCallbackPage />} />        
       </Routes>
     </Layout>
   );

@@ -1,6 +1,6 @@
 import Modal from "../component/Mopdal";// Modal 컴포넌트 import
 import React from "react";
-import SocialLogin from "./Login"; // Login 컴포넌트 import
+import SocialLogin from "./SocialLogin"; // Login 컴포넌트 import
 
 const LoginModal = () => {
   return (
