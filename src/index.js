@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import { BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 대신 Router 사용
 import './index.css';
 import App from './App.js';
 import reportWebVitals from './pages/reportWebVitals.js';
