@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 const REST_API_KEY = 'ENDOOH8nFrZvnFqcybc2';
-// const REDIRECT_URI = 'https://mvti.site/login/naver/callback';
-const REDIRECT_URI = 'http://localhost:3000/login/naver/callback';
+const REDIRECT_URI = 'https://mvti.site/#/login/naver/callback';
+// const REDIRECT_URI = 'http://localhost:3000/login/naver/callback';
 
 const NaverAuthRedirect = () => {
     useEffect(() => {
@@ -18,7 +18,6 @@ const NaverAuthRedirect = () => {
 };
 
 export default NaverAuthRedirect;
-
 // //const REQUEST_ADDRESS = 'http://localhost:3000/';
 // const REQUEST_ADDRESS = 'https://api.mvti_test/member/login'; // 백엔드 서버 주소
 // const kakaoLoginAPI = `https://kauth.kakao.com/oauth/authorize?

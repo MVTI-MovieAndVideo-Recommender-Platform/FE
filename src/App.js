@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
+import GenrePage from './pages/GenrePage.js';
 
 import SocialLogin from "./pages/SocialLogin.js"; // SocialLogin import
 import NaverAuthRedirect from './component/login/NaverAuthRedirect.js';
@@ -26,6 +27,7 @@ export function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/mvti_test" element={<MVTITestPage />} />
         <Route path="/mvti_result" element={<MVTIResultPage />} />
+        <Route path="genre" element={<GenrePage/>} />
         <Route path="/content/:id" element={<DetailPage />} />
 
         <Route path="/login" element={
