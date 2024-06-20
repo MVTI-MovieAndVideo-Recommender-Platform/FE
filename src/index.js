@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 대신 Router 사용
+// import { BrowserRouter as Router } from 'react-router-dom'; // BrowserRouter 대신 Router 사용
 import './index.css';
 import App from './App.js';
 import reportWebVitals from './pages/reportWebVitals.js';
@@ -12,9 +12,8 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <Router> {/* BrowserRouter 대신 Router 사용 */}
-        <App />
-      </Router>
+      <App />
+
     </React.StrictMode>
   );
 } else {
@@ -22,3 +21,6 @@ if (rootElement) {
 }
 // 페이지 성능 지표 보고
 reportWebVitals();
+
+//<Router></Router> {/* BrowserRouter 대신 Router 사용 */}
+

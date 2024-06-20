@@ -54,7 +54,9 @@ const NaverCallbackPage = () => {
             if (typeof destroy === 'function') {
                 await destroy();
                 window.location.replace("http://localhost:3000/"); // 쟈기가 관리할 홈페이지 주소
-            } else {
+                //http://localhost:3000/
+                //https://mvti.site
+               } else {
                 console.warn('destroy is not a function');
             }
         };

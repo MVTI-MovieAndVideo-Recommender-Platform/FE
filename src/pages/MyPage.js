@@ -3,20 +3,19 @@ import { Link } from 'react-router-dom';
 
 const MyPage = ()=> {
    return(
-    <section className='flex 0'>
-            <h5>MyPage_return</h5>
-    {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
-    <h1>MVTITestPage</h1>
-      <div className='MVTIContainer'>
-        <Link to="/">
-          <button className="btn w-64 rounded-full"> HomePage</button>
-        </Link>
-      </div>
-    <article className=''>
-      <h1>article 상단</h1>
+
+      
+    <section className='flex flex-col items-center p-4 mb-10 w-full'>
+    {/*아바타 + 추천리스트 + 찜한 영화 + 재검사*/}
+    <h1>MVTIResultPage</h1>
+      <div className='avartar'>
+    <div>
+    </div>
+  </div>
+    <article className='Media_Preference'>
+      <h1>찜 리스트</h1>
     </article>
   </section>
-   )
-}
-
+);
+};
 export default MyPage;

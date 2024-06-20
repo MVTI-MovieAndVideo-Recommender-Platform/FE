@@ -1,12 +1,12 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import RateStar from "./RateStar";
+import RateStar from "../RateStar.js";
 import "./Content.css";
-import { genres } from "./API/api";
+import { genres } from "./API/api_Media.js";
 
 //피쳐: id,title,runtime,release_date,certification,genre,origin_country,overview,director,actor,platform,rating_value,rating_count,posterurl_count,backdropurl_count,posterurl,backdropurl,contentype,
-   function Data({
+   function Media({
    id,
    title,
    runtime,
@@ -26,26 +26,21 @@ import { genres } from "./API/api";
    backdropurl,
    contentype,
 }) //all, movie, series!!!
-   {let dataTypeText;
+   {let MediaTypeText;
       switch (contentype) {
       case 0:
-         dataTypeText = "all";
+         MediaTypeText = "all";
          break;
       case 1:
-         dataTypeText = "movie";
+         MediaTypeText = "movie";
          break;
       case 2:
-         dataTypeText = "series";
+         MediaTypeText = "series";
          break;
       default:
-         dataTypeText = "unknown";            
+         MediaTypeText = "unknown";            
    }
    //api.js에서 const genres의 id, name ->id와 name 받기
-   {let dataGenreID;
-      switch(genres){
-         
-      }
-   }
    
    return (
       //pathname: '/movie/1' -> detailpage/movie/id 경로로 이동
@@ -93,30 +88,5 @@ import { genres } from "./API/api";
       </Link>
     );
   }
+  export default Media;
   
-  Data.propTypes = {
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    runtime: PropTypes.number.isRequired,
-    release_date: PropTypes.string.isRequired,
-    certification: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(PropTypes.string)
-    ])).isRequired,
-    origin_country: PropTypes.arrayOf(PropTypes.string).isRequired,
-    overview: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    actor: PropTypes.string.isRequired,
-    platform: PropTypes.string.isRequired,
-    rating_value: PropTypes.number.isRequired,
-    rating_count: PropTypes.number.isRequired,
-    posterurl_count: PropTypes.number.isRequired,
-    backdropurl_count: PropTypes.number.isRequired,
-    posterurl: PropTypes.string.isRequired,
-    backdropurl: PropTypes.string.isRequired,
-    contentype: PropTypes.number.isRequired,
-  };
-  
-  export default Data;
-  //posterurl_count, backdropurl_count > 0 이미지 출력

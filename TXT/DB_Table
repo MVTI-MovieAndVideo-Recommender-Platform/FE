@@ -19,7 +19,6 @@ CREATE TABLE auth (
 
 ## 콘텐츠 DB
 
-use content;
 
 CREATE TABLE media (
     id INT UNSIGNED NOT NULL PRIMARY KEY,

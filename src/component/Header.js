@@ -48,31 +48,3 @@ const Header = () => {
 };
 
 export default Header;
-
-//{!user && <Button text="Login" onClick={login}></Button>}
-//{user && <Button text="Logout" onClick={logout}></Button>}
-
-//import {
-//  Avatar,
-//  Box,
-//  Button,
-//  IconButton,
-//  LightMode,
-//  Menu,
-//  MenuButton,
-//  MenuList,
-//  Stack,
-//  ToastId,
-//  useColorMode,
-//} from "@chakra-ui/react";
-
-//import LoginModal from "./LoginModal";
-//import SignUpModal from "./SignUpModal";
-//import useUser from "../lib/useUser";
-//import { logOut } from "../api";
-//import { useMutation, useQueryClient } from "@tanstack/react-query";
-//import { useRef } from "react";
-//import user from "./User.js";
-//로고- 홈으로 이동
-//검색창- 
-//로그인/회원가입- 해당 모달 이동

@@ -12,7 +12,7 @@
   const closeModal = () => setIsModalOpen(false);
    
    return (      
-      <section className='flex flex-col items-center p-10 mb-10'>
+      <section className='flex flex-col items-center p-10 mb-10 bg-white dark:bg-gray-800 text-black dark:text-white'>
          <div className='ModalLogin'>
             <div>
                <button className='btn w-64 rounded-full' onClick={openModal}>모달_로그인</button>  
@@ -71,15 +71,7 @@ export default HomePage;
 //  import React from 'react';
 //  import "./HomePage.css";
 //  import Layout from '../component/Layout';
-//  
-//const HomePage = ({children}) => {
-//
-//return (
-//    <Layout>
-//    <div className='MVTIContainer'>
-//      {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
-//      {children}
-//    </div>
+
 //
 //    <div className="ContentContainer">
 //      {/*ContentContainer 구성*/}

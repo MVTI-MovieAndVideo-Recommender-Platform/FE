@@ -11,7 +11,7 @@ import Logo_s3 from "../asset/img/logo-s3.png";
 function Footer() {
   return (
     <footer className="bg-white p-3 fixed bottom-0 w-full dark:bg-gray-800 text-black dark:text-white">
-        <div className="bg-whited ark:bg-gray-800 mx-auto w-full px-6 lg:px-8">
+        <div className="bg-white dark:bg-gray-800 mx-auto w-full px-6 lg:px-8">
           <h2 className=" text-center text-lg font-semibold leading-8 text-gray-900 dark:text-white">
            MVTI Movie & Video to All!
           </h2>
