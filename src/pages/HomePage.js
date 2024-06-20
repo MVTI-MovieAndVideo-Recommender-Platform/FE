@@ -30,15 +30,38 @@
           <article className='items-center'>
             <h1>article 상단</h1>
             <section className='cards-container'>
-              <div className='cards-recommeended'>
-                <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
-                  <div className="cards-carousel">
-                    <div className="data-card"/>                  
-                      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt='img1' className="rounded-box" />
-                  </div>    
-                    <div className="data-card">
-                      <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt='img2' className="rounded-box" />
-                    </div> 
+              <div className='cards-recommeended '>
+                <div className="carousel carousel-horizontal max-h-md p-4 space-x-4 bg-neutral rounded-box">
+                  
+                    <div className="data-card_skeleton"/>
+                      <div className="flex flex-col gap-4 w-52">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div>
+                    <div className="data-card_skeleton"/>
+                      <div className="flex flex-col gap-4 w-52">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div>
+                    <div className="data-card_skeleton"/>
+                      <div className="flex flex-col gap-4 w-52">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div>
+                    <div className="data-card_skeleton"/>
+                      <div className="flex flex-col gap-4 w-52">
+                        <div className="skeleton h-32 w-full"></div>
+                        <div className="skeleton h-4 w-28"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                        <div className="skeleton h-4 w-full"></div>
+                    </div>                  
+                     
                 </div>
               </div>
             </section>

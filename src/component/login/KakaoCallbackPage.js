@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import   axios  from 'axios';
+import axios from 'axios';
 //쿼리 파라미터 추출(fetchData), 서버 요청(PostData), 이 둘을 종합하여 실행하는 콜백(destroy) 함수
 
 //쿼리 파라미터에서 access_token을 직접 추출
@@ -11,63 +11,52 @@ const KakaoCallbackPage = () => {
     const [queryParams, setQueryParams] = useState({});
 
     useEffect(() => {
-        var access_token = undefined;
         const fetchData = async () => {
             // 현재 URL에서 쿼리 파라미터를 추출
-            const query = new URLSearchParams(window.location.search);
-            const params = {};
-            query.forEach((value, key) => {
-                params[key] = value;
-            });
-            access_token = params["access_token"];
-            setQueryParams(params);
-
-        };
-
-        const PostData = async () => {
-            console.log("보낸다잉");
-            console.log(access_token);
-            await axios.post("https://api.mvti.site/member/login/kakao", {}, {
-                headers: {
-                    'access_token': access_token
-                }
-            }).then(response => {
-                console.log(response.headers.jwt)
-                localStorage.setItem('jwt', JSON.stringify(response.headers.jwt));
-
-            }).catch(response => {
-               console.log("잘하자잉")
-                console.log(response)
-            });
-        };
-
-
-
-        const destroy = async () => {
-            fetchData();
-            console.log(access_token);
-            await PostData();
-            // destroy 함수 내용
-            // fetchData();
-
-        };
-
-        return async () => {
-            // 정리 함수
-            if (typeof destroy === 'function') {
-                await destroy();
-                window.location.replace("http://localhost:3000");
-                //http://localhost:3000/
-                //https://mvti.site
-            } else {
-                console.warn('destroy is not a function');
+            const hash = window.location.hash;
+            const query = hash.split('?')[1];
+            if (query) {
+                const params = new URLSearchParams(query);
+                const paramsObj = {};
+                params.forEach((value, key) => {
+                    paramsObj[key] = value;
+                });
+                setQueryParams(paramsObj);
+                return paramsObj["access_token"];
             }
         };
-    }, [setQueryParams]);
+
+        const postData = async (access_token) => {
+            console.log("보낸다잉");
+            console.log(access_token);
+            try {
+                const response = await axios.post("https://api.mvti.site/member/login/kakao", {}, {
+                    headers: {
+                        'access_token': access_token
+                    }
+                });
+                console.log(response.headers.jwt);
+                localStorage.setItem('jwt', JSON.stringify(response.headers.jwt));
+            } catch (error) {
+                console.log("잘하자잉");
+                console.log(error);
+            }
+        };
+
+        const runEffect = async () => {
+            const access_token = await fetchData();
+            if (access_token) {
+                await postData(access_token);
+                window.location.replace("https://mvti.site");
+            }
+        };
+
+        runEffect();
+    }, []);
 
     return (
         <div>
-            <h1>kakao Callback Page</h1>
+            <h1>Kakao Callback Page</h1>
             <p>Query Parameters:</p>
             <ul>
                 {Object.entries(queryParams).map(([key, value]) => (
@@ -79,6 +68,7 @@ const KakaoCallbackPage = () => {
 };
 
 export default KakaoCallbackPage;
+
 
 //import React, { useEffect, useState } from 'react';
 //import axios from 'axios';

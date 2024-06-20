@@ -5,23 +5,23 @@ const NaverCallbackPage = () => {
     const [queryParams, setQueryParams] = useState({});
 
     useEffect(() => {
-        var code = undefined;
-        var state = undefined;
-
         const fetchData = async () => {
             // 현재 URL에서 쿼리 파라미터를 추출
-            const query = new URLSearchParams(window.location.search);
-            const params = {};
-            query.forEach((value, key) => {
-                params[key] = value;
-            });
-            setQueryParams(params);
-            code = params["code"];
-            state = params["state"];
+            const hash = window.location.hash;
+            const query = hash.split('?')[1];
+            if (query) {
+                const params = new URLSearchParams(query);
+                const paramsObj = {};
+                params.forEach((value, key) => {
+                    paramsObj[key] = value;
+                });
+                setQueryParams(paramsObj);
+                return { code: paramsObj["code"], state: paramsObj["state"] };
+            }
+            return {};
         };
-        // fetchData();
 
-        const PostData = async () => {
+        const postData = async (code, state) => {
             try {
                 const response = await axios.post("https://api.mvti.site/member/login/naver", {}, {
                     headers: {
@@ -38,29 +38,16 @@ const NaverCallbackPage = () => {
             }
         };
 
-
-
-        const destroy = async () => {
-            fetchData();
-            console.log(code, state);
-            await PostData();
-            // destroy 함수 내용
-            // fetchData();
-
-        };
-
-        return async () => {
-            // 정리 함수
-            if (typeof destroy === 'function') {
-                await destroy();
-                window.location.replace("http://localhost:3000/"); // 쟈기가 관리할 홈페이지 주소
-                //http://localhost:3000/
-                //https://mvti.site
-               } else {
-                console.warn('destroy is not a function');
+        const runEffect = async () => {
+            const { code, state } = await fetchData();
+            if (code && state) {
+                await postData(code, state);
+                window.location.replace("https://mvti.site");
             }
         };
-    }, [setQueryParams]);
+
+        runEffect();
+    }, []);
 
     return (
         <div>
@@ -76,3 +63,4 @@ const NaverCallbackPage = () => {
 };
 
 export default NaverCallbackPage;
+
