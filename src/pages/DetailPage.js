@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 import Rating from "../component/Rating.js";
 //import { useParams, useLocation } from "react-router-dom";
 
-
+//https://api.mvti.site/info/media/{media_id}
 //mvti.site/banner/1/1
 //mvti.site/poster/1/1
 //mvti.site/thunbnail/1/1

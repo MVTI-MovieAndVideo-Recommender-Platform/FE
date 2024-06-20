@@ -1,9 +1,6 @@
    import React,{useState} from 'react';
    import { Link } from 'react-router-dom';
    import ModalLogin from '../component/ModalLogin';
-  //import "./MVTITestPage.js";
-  //react icon + tailwindcss + daisyUI
-
 
    const HomePage = () => {
       const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,12 +67,8 @@
               <div className='cards-recommeended'>
                 <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
                   <div className="cards-carousel">
-                    <div className="data-card"/>                  
-                    <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt='img1' className="rounded-box" />
-                  </div>    
-                  <div className="data-card">
-                    <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt='img2' className="rounded-box" />
-                  </div> 
+                    <div className="data-card"/>
+                    </div> 
                 </div>
               </div>
             </section>
@@ -86,6 +79,15 @@
 
 export default HomePage;
 
+
+//<div className="data-card_skeleton"/>
+//<div className="flex flex-col gap-4 w-52">
+//  <div className="skeleton h-32 w-full"></div>
+//  <div className="skeleton h-4 w-28"></div>
+//  <div className="skeleton h-4 w-full"></div>
+//  <div className="skeleton h-4 w-full"></div>
+//</div>  
+//
 
 //  //import axios from "axios";
 //  //import Content from"../component/Content";

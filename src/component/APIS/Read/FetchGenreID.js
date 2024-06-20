@@ -2,6 +2,7 @@
 import axios from 'axios';
 // media의 genre 값이 genre_ID의 name 배열 내에 존재할 때 해당 genre_id 값을 부여
 
+//데이터 불러온 후, 같은 장르르 가진 데이터의 id 리스트 추출
 const genre_ID = [
    { id: 1, name: ['코미디', '시트콤' ] },
    { id: 2, name: ['드라마'] },
@@ -37,37 +38,43 @@ const genre_ID = [
    { id: 32, name: ['전쟁', 'War & Politics'] },
    { id: 33, name: ['스포츠'] },
 ];
-//fetchDataFromServer : URL에서 데이터 호출, callback함수로 전달
+// fetchDataFromServer: URL에서 데이터 호출, callback 함수로 전달
 const fetchDataFromServer = async function(url, callback) {
-   try{
+   try {
       const response = await axios.get(url);
       const data = response.data;
       callback(data);
-      }catch(error){
-      console.error('Error fetch Data(genreID):',error);
-      }
-   };
-// fetchGenreID : fetchDataFromServer -> 각 media객체에 genre_ID를 부여!
-//새로운 fetch 함수 추가
+   } catch (error) {
+      console.error('Error fetching data (genreID):', error);
+   }
+};
+
+// fetchGenreID: fetchDataFromServer -> 각 media 객체에 genre_ID를 부여!
 const fetchGenreID = async (callback) => {
-   const url = 'https://api.mvti.site/info/search';
+   const url = 'https://api.mvti.site/info/search?page=1&page_size=100'; // URL 인코딩 및 파라미터 확인
    await fetchDataFromServer(url, (data) => {
-      const processedData = data.map(media => {
-         const genre_IDs = media.genre.map(genreName => {
-            const foundGenre = genre_ID.find(g => g.name.includes(genreName));
-            return foundGenre ? foundGenre.id : null;
-         }).filter(id => id !== null); // null 값을 제외함
-         
-         return {
-            ...media,
-            genre_ID:genre_IDs
-         };
+      const processedData = data.results.map(media => {
+         if (media.genre && media.genre.length > 0) {
+            const genre_IDs = media.genre.map(genreName => {
+               const foundGenre = genre_ID.find(g => g.name.includes(genreName));
+               return foundGenre ? foundGenre.id : null;
+            }).filter(id => id !== null); // null 값을 제외함
+            
+            return {
+               ...media,
+               genre_ID: genre_IDs
+            };
+         }
+         return media;
       });
       callback(processedData);
    });
- };
+};
 
- export { fetchDataFromServer, fetchGenreID, genre_ID };
+export { fetchDataFromServer, fetchGenreID, genre_ID };
+
+
+
 //R server
 //검색, 검사시 추천리스트
 //:https://api.mvti.site/info/docs#/default/test__get
