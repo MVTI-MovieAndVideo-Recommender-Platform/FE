@@ -1,12 +1,8 @@
 "use strict";
-const axios = require('axios');
-//R server
-//검색, 검사시 추천리스트
-//:https://api.mvti.site/info/docs#/default/test__get
-//https://api.mvti.site/info/docs#/default/get_search_search_get
+import axios from 'axios';
+// media의 genre 값이 genre_ID의 name 배열 내에 존재할 때 해당 genre_id 값을 부여
 
-
-const genres = [
+const genre_ID = [
    { id: 1, name: ['코미디', '시트콤' ] },
    { id: 2, name: ['드라마'] },
    { id: 3, name: ['애니메이션'] },
@@ -41,24 +37,43 @@ const genres = [
    { id: 32, name: ['전쟁', 'War & Politics'] },
    { id: 33, name: ['스포츠'] },
 ];
-
+//fetchDataFromServer : URL에서 데이터 호출, callback함수로 전달
 const fetchDataFromServer = async function(url, callback) {
    try{
       const response = await axios.get(url);
       const data = response.data;
       callback(data);
       }catch(error){
-      console.error('Error fetch Data:',error);
+      console.error('Error fetch Data(genreID):',error);
       }
    };
-// 새로운 fetch 함수 추가
-const fetchMediaData = async (callback) => {
-   const url = 'https://api.mvti.site/info/search?countries=%ED%95%9C%EA%B5%AD&countries=%EB%AF%B8%EA%B5%AD&isfilter=true&contentype=0&page=1';
-   await fetchDataFromServer(url, callback);
+// fetchGenreID : fetchDataFromServer -> 각 media객체에 genre_ID를 부여!
+//새로운 fetch 함수 추가
+const fetchGenreID = async (callback) => {
+   const url = 'https://api.mvti.site/info/search';
+   await fetchDataFromServer(url, (data) => {
+      const processedData = data.map(media => {
+         const genre_IDs = media.genre.map(genreName => {
+            const foundGenre = genre_ID.find(g => g.name.includes(genreName));
+            return foundGenre ? foundGenre.id : null;
+         }).filter(id => id !== null); // null 값을 제외함
+         
+         return {
+            ...media,
+            genre_ID:genre_IDs
+         };
+      });
+      callback(processedData);
+   });
  };
 
-export {fetchDataFromServer, fetchMediaData, genres };
-
+ export { fetchDataFromServer, fetchGenreID, genre_ID };
+//R server
+//검색, 검사시 추천리스트
+//:https://api.mvti.site/info/docs#/default/test__get
+//https://api.mvti.site/info/docs#/default/get_search_search_get
+//전체 컨텐츠
+//:https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
 
 //info/
 //mvti.site/info/media/1 (숫자)

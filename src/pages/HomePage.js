@@ -71,15 +71,7 @@ export default HomePage;
 //  import React from 'react';
 //  import "./HomePage.css";
 //  import Layout from '../component/Layout';
-//  
-//const HomePage = ({children}) => {
-//
-//return (
-//    <Layout>
-//    <div className='MVTIContainer'>
-//      {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
-//      {children}
-//    </div>
+
 //
 //    <div className="ContentContainer">
 //      {/*ContentContainer 구성*/}

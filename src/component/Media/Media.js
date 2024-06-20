@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import RateStar from "../RateStar";
+import RateStar from "../RateStar.js";
 import "./Content.css";
 import { genres } from "./API/api_Media.js";
 
@@ -41,11 +41,6 @@ import { genres } from "./API/api_Media.js";
          MediaTypeText = "unknown";            
    }
    //api.js에서 const genres의 id, name ->id와 name 받기
-   {let MediaGenreID;
-      switch(genres){
-         
-      }
-   }
    
    return (
       //pathname: '/movie/1' -> detailpage/movie/id 경로로 이동

@@ -1,8 +1,6 @@
 import React from "react";
-//{ useEffect }
-import  { BrowserRouter as Router, Routes, Route }  from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { RecoilRoot } from 'recoil'; // RecoilRoot import
-//import {userState} from './component/state/atoms.js';
 import DetailPage from './pages/DetailPage.js';
 import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
@@ -29,7 +27,7 @@ export function App() {
         <Route path="/mvti_test" element={<MVTITestPage />} />
         <Route path="/mvti_result" element={<MVTIResultPage />} />
         <Route path="/content/:id" element={<DetailPage />} />
-        
+
         <Route path="/login" element={
           <GuestRoute>
             <SocialLogin />
@@ -37,9 +35,9 @@ export function App() {
         } />
         <Route path="/login/auth" element={
           <GuestRoute>
-          <SocialLogin />
+            <SocialLogin />
           </GuestRoute>
-        } /> 
+        } />
         <Route path="/mypage" element={
           <ProtectedRoute>
             <MyPage />
@@ -49,20 +47,27 @@ export function App() {
         <Route path="/login/naver" element={<NaverAuthRedirect />} />
         <Route path="/login/naver/callback" element={<NaverCallbackPage />} />
         <Route path="/kakao-auth-redirect" element={<KakaoAuthRedirect />} />
-        <Route path="/login/kakao/callback" element={<KakaoCallbackPage />} />        
+        <Route path="/login/kakao/callback" element={<KakaoCallbackPage />} />
       </Routes>
     </Layout>
+
   );
 }
 export default function AppWrapper() {
   return (
     <RecoilRoot>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </RecoilRoot>
   );
 }
-//{isLoggedIn ? (
-//  <Route path="/mypage" element={<MyPage />} />
-//) : (
-//  <Route path="/login" element={<SocialLogin />} />
 //)}
+
+
+
+
+//서비스 제공 시 해시라우팅으로 작성해줘야함!!
+//https://mvti.site/#/ 원하는 라우팅 주소!(내부 페이지는 자동으로 #을 넣어주는데, 해시라우팅 기능!!
+//하이퍼링크 작성 시 /#/ 넣어주기!!!
+//

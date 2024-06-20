@@ -1,13 +1,10 @@
 import axios from "axios";
 
-//https://api.mvti.site/API 
-//
-//https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100
 // API 호출 위한 axios 인스턴스 생성
 // endpoint 추가
 const instance = axios.create({
-  baseURL: "//https://api.mvti.site/info/search?anything=string&isfilter=false&contentype=0&page=1&page_size=100",
-  timeout: 10000
+  baseURL: 'https://api.mvti.site/info/search',
+  timeout: 20000
 });
 
 //instance 객체 내보내고 다른 파일에서 사용가능하게 함 
