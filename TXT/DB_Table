@@ -1,0 +1,134 @@
+## 유저 DB
+use member;
+
+CREATE TABLE user (
+    user_id CHAR(36) NOT NULL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    gender CHAR(1) NOT NULL,
+    birthyear SMALLINT UNSIGNED NOT NULL,
+    mbti CHAR(4) NULL,
+    last_update DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    delete_state BOOLEAN NOT NULL DEFAULT 0
+)
+CREATE TABLE auth (
+    token CHAR(24) NOT NULL PRIMARY KEY,
+    provider VARCHAR(128) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+## 콘텐츠 DB
+
+
+CREATE TABLE media (
+    id INT UNSIGNED NOT NULL PRIMARY KEY,
+    type ENUM('movie', 'series') NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    runtime SMALLINT UNSIGNED NOT NULL,
+    release_date DATE NOT NULL,
+    certification VARCHAR(255) DEFAULT NULL,
+    genre VARCHAR(255) NOT NULL,
+    origin_country VARCHAR(255) NOT NULL,
+    overview VARCHAR(2000) NOT NULL,
+    director VARCHAR(255) DEFAULT NULL,
+    actor VARCHAR(1000) DEFAULT NULL,
+    platform VARCHAR(255) NOT NULL,
+    rating_value DECIMAL(2, 1) UNSIGNED NOT NULL CHECK (
+        rating >= 0
+        AND rating <= 5
+    ),
+    rating_count INT UNSIGNED NOT NULL,
+    posterurl_count TINYINT UNSIGNED DEFAULT 0,
+    backdropurl_count TINYINT UNSIGNED DEFAULT 0,
+    posterurl VARCHAR(1000) DEFAULT NULL,
+    backdropurl VARCHAR(1000) DEFAULT NULL
+);
+
+CREATE TABLE id_manager (
+    next_movie_id INT UNSIGNED DEFAULT 1,
+    next_series_id INT UNSIGNED DEFAULT 2
+);
+
+## 리뷰 DB
+
+user review;
+
+create table rating (
+    rating_id int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id CHAR(36) NOT NULL,
+    media_id int UNSIGNED NOT NULL,
+    rating DECIMAL(2, 1) UNSIGNED NOT NULL CHECK (
+        rating >= 0
+        AND rating <= 5
+    ),
+    last_update DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    UNIQUE (media_id, user_id)
+)
+
+CREATE TABLE preference (
+    preference_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id CHAR(36) NOT NULL,
+    media_id INT UNSIGNED NOT NULL,
+    last_update DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    UNIQUE (media_id, user_id)
+);
+
+## 추천 DB
+
+use recommed;
+
+CREATE TABLE recommendation (
+    recommendation_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id CHAR(36) NOT NULL,
+    user_mbti char(4) NOT NULL,
+    input_media_id INT UNSIGNED NOT NULL,
+    recommended_media_id INT UNSIGNED NOT NULL,
+    recommendation_time DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+--------------------------------------------------------------------------
+contentype == 1 > 영화
+
+contentype == 2 > 시리즈
+
+이외의 모든 숫자는 영화 + 시리즈
+
+https://api.mvti.site/info
+swagger
+https://api.mvti.site/info/search?anything=%EC%95%84%EC%9D%B4%EC%96%B8%EB%A7%A8&isfilter=false&contentype=0&page=1&page_size=100
+
+---------------------------------------------------------------------------
+
+rds 서버 mysql8.35
+db 이름 mvti
+마스터 사용자 이름 : adminmvti
+마스터 암호 : mvtiserver
+cud 사용자 id : wotjr980321
+cud 사용자 암호 : mvtiserver
+RDS 호스트
+[mvti-mysql.c3e0mmagcesm.ap-northeast-2.rds.amazonaws.com](http://mvti-mysql.c3e0mmagcesm.ap-northeast-2.rds.amazonaws.com/)
+RDS 포트
+3306
+mongo server 7.0
+mongodb 서버 호스트 : 3.35.105.70
+포트 27017
+db 이름 mvti
+읽기 사용자 id : wkdqhrhkd12
+읽기 사용자 pwd : mvtiserver
+쓰기 수정 삭제 사용자 id : wotjr980321
+쓰기 수정 삭제 사용자 pwd : mvtiserver                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ---------------------------------------------------------------------------
+<컨텐츠 API>
+read server 주소
+
+read server swagger 
+
+https://pj2ijfkkmb6q7avxdo6fkvhekq0kzmqs.lambda-url.ap-northeast-2.on.aws/docs
+컨텐츠사이즈- 건드리지않기.
+영화: 1
+리퀘스트URL 
+https://pj2ijfkkmb6q7avxdo6fkvhekq0kzmqs.lambda-url.ap-northeast-2.on.aws/search/genre?genres=%EB%93%9C%EB%9D%BC%EB%A7%88&genres=sf&contentype=1&page=1&page_size=100
+
+앱 키- rest.api : 81a8ac8cb265ba4a316d3b459a700e3b                                               
+
+

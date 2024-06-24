@@ -1,0 +1,82 @@
+https://api.mvti.site/info/search?titles=%EC%A7%B1%EA%B5%AC&isfilter=True&contentype=01&page=1&page_size=100&titles=%EC%9B%90%ED%94%BC%EC%8A%A4
+
+https://mvti.site/login
+https://velog.io/@miho2582/wooisac-tailwind-emotion
+
+https://tailwindui.com/components/application-ui/navigation/navbars
+https://developers.kakao.com/docs/latest/ko/kakaologin/common
+https://developers.kakao.com/tool/resource/login
+https://developers.naver.com/docs/login/api/api.md
+https://tailwindui.com/documentation#react-creating-components
+https://ossam5.tistory.com/112
+#PostMan_api 정리#
+https://documenter.getpostman.com/view/14225355/2sA3XQh2MS#49a053b5-1885-4cc8-85b4-400923a452b0
+
+ Tailwind 와 Emotion 
+
+우리 팀은 회의를 거쳐 다음과 같은 이유로 두 프레임워크를 같이 사용하게 되었다.
+
+Tailwind 는 동적인 스타일 변화 코드를 작성하는 것이 불편하다.
+복잡한 컴포넌트의 경우 Tailwind 의 클래스 이름이 길어지며 가독성이 떨어진다.
+react-calendar 라이브러리는 Emotion 을 사용해야 한다.
+Emotion 으로 Tailwind 를 대신하기엔 Tailwind 가 주는 편리성이 크다.
+같이 써본 소감
+Emotion 과 Tailwind 나름대로 단점과 장점을 모두 가지고 있었기에 우리 팀은 둘의 장점을 살릴 수 있도록 규칙을 세웠다.
+
+복잡한 컴포넌트, 큰 레이아웃 구조를 잡는 데 이름이 필요한 경우 Emotion 을 사용한다.
+간단한 컴포넌트, 가독성을 해치지 않는다면 빠른 개발을 위해 Tailwind 를 사용한다.
+이렇게 기준을 세우고 코드를 작성하니 컴포넌트 작업마다 원하는 방식으로 CSS style 을 작성할 수 있어 좋았다.
+
+Tailwind 과 Emotion 이 서로 부족한 부분을 서로 상충해준다고 느껴졌고, 결과적으로 이전 프로젝트에서 넘쳤던 Style 파일들을 따로 분리시키지 않아도 될 정도로 코드가 길지 않았다.
+
+처음엔 두 프레임웤를 같이 사용하는 것이 모호하고 안티 패턴이란 생각에 사용하기 꺼려졌지만, 막상 사용해보니 편리했고 안티 패턴이란 개개인의 판단의 영역이라는 생각이 들었다.
+
+https://developers.naver.com/docs/login/api/api.md
+
+
+[TIL] React no-template-curly-in-string
+
+
+https://doyu-l.tistory.com/269
+
+-검사P 추가
+   ui 필터(각 성향에 맞게) 구현
+   화면 캡쳐https://goodsgoods.tistory.com/268
+
+https://sisiblog.tistory.com/326
+
+Tailwind CSS_
+https://tailwindui.com/components/application-ui/navigation/navbars
+github_컴포넌트 라이브러리
+https://github.com/gevendra2004/gevstack
+
+:HTML 참고
+https://html.spec.whatwg.org/multipage/
+
+: WIX(웹 개발 기능구현 시 참고(html,css))
+https://www.wix.com/velo/examples
+
+: WIX 개발자 참고
+https://dev.wix.com/docs/develop-websites
+- https://ko.legacy.reactjs.org/docs/getting-started.html
+https://www.tcpschool.com/xml/xml_basic_namespace
+
+아이콘 추천:
+Material Icons: Google의 Material Design 아이콘 세트
+Font Awesome: 다양한 아이콘을 제공하는 무료/유료 아이콘 세트
+Icons8: 다양한 스타일의 아이콘을 제공하는 사이트
+이런 사이트에서 "movie", "tv", "drama", "recommendation" 등의 키워드로 검색하여 어울리는 아이콘을 선택하면 됩니다.
+
+파비콘 추천:
+Favicon Generator: Favicon.io 같은 파비콘 생성기
+Real Favicon Generator: Real Favicon Generator에서 다양한 해상도와 플랫폼에 맞는 파비콘 생성
+
+헤더/레이아웃 배치 
+https://brunch.co.kr/@830bfa34e0894d6/25
+
+#아바타 편집기#
+ - User Type 별 감성 필터 또는 아바타 기능으로 추가
+ (npm install react-avatar-editor)
+	-  https://velog.io/@cherry_/ReactThree.js-%ED%8A%B9%EC%A0%95-GLTF-%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EA%B1%B0-GLTF%EC%97%90-type-%EB%84%A3%EA%B8%B0
+++https://threejs.org/
+

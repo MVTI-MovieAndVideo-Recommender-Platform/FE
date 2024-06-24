@@ -1,0 +1,160 @@
+## 
+로그인 API :로그인 인증 요청 API,접근 토큰 발급/갱신/삭제 요청API
+ - 네이버 로그인 인증 요청 API: 웹 또는 앱에 네이버 로그인 화면을 띄우는 API
+ 이용자가 네이버 회원 인증에 성공 -> API로부터 받은 code 값을 이용해서 접근 토큰 발급 요청 API를 호출한다.
+ - > API를 통해 접근 토큰(access token) 발급 요청,
+  받은 접근 토큰(access token)값 : 회원 프로필 조회를 비롯하여 여러가지 로그인 오픈 API를 호출
+
+로그인 오픈 API : 
+접근 토큰값을 이용해 호출 가능한 API 들
+HTTP로 호출할 때 Header에 접근 토큰(access token) 및 Client ID와 Client Secret 값을 같이 전송해서 활용가능하다.
+
+
+네이버 로그인: 별도의 아이디와 비밀번호 없이 네이버 아이디로 간편하게 외부 서비스에 로그인할 수 있게 하는 API입니다.
+카페: 외부 서비스에서 네이버 카페에 가입하거나 게시글을 등록할 수 있게 하는 API입니다.
+
+#자주 발생하는 error#
+(1) 네이버 로그인 이용 시 ‘관리자 확인 필요‘ 메시지가 노출
+
+- 설정URL이 실제 서비스 사이트 URL과 불일치 / Callback URL이 잘못된 경우
+* 설정된 서비스 URL이 실제 서비스 사이트 URL과 동일한지 확인(www, 포트번호, http/https 구분없이 도메인명만 정확히 입력)
+* Callback URL: 서비스 사이트에 접속 가능한 주소별로 필요한 Callback URL이 모두 정상적으로 등록되어 있는지 확인
+
+(2) 네이버 로그인 애플리케이션 설정 내역이 변경되지 않는다면?
+- 네이버 로그인 검수가 진행중 상태인지 확인(검수가 진행중일 때에는 애플리케이션 이름, 로고 이미지, 제공 정보를 변경할 수 없음)
+2. 지도 API 인증 실패시 수정 방법
+
+
+(1) 에러현상: 네이버 지도가 잠시 나타났다가, 'ClientID와 URL을 확인하세요'라는 인증 실패 alert 메세지가 출력
+(2) 원인: 하단의 '비로그인 오픈 API 서비스 환경'에 설정된 서비스 URL 값이 실제 서비스 URL과 일치하지 않는 경우
+(3) 조치 방법
+- 실제 서비스 하는 사이트 URL과 동일한지 확인 (www, 포트번호, http/https 구분 없이 도메인명만 정확히 입력)
+- 도메인은 최대 10개 까지 등록 가능하며 서브 도메인이 있을 경우는 대표 도메인만 www 없이 입력 (예: http://naver.com)
+- 하이브리드앱이나 윈도우 애플리케이션은 location.href 객체 출력 값을 입력 (예: file://로컬URI)
+
+
+
+<<<<<<< HEAD
+--------------------------------------------------------------------------
+-Kakao 로그인----------------------------
+mvti 앱 키: rest API : 81a8ac8cb265ba4a316d3b459a700e3b / js : 581c81d0517770156f4dbc0137020417
+mvti 시크릿 키 : 4EaUbuFfvgH6KqQ30jfcSAMuiMjzb0oP
+리다이렉트URL :  http://localhost:3000/login
+http://localhost:3000/Login
+http://localhost:3000/Login/kakao
+http://localhost:3000/Oauth
+=======
+-Naver 로그인-------------------------------------------------------------------------
+-Kakao 로그인----------------------------
+mvti 앱 키: 81a8ac8cb265ba4a316d3b459a700e3b
+mvti 시크릿 키 : 4EaUbuFfvgH6KqQ30jfcSAMuiMjzb0oP
+리다이렉트URL :  http://localhost:3000/login
+
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
+
+mvti test시크릿 키jvz405lsBvteq8vJlSFBNAgjW6Bx7yUO
+리다이렉트URL :  http://localhost:3000/login
+
+
+
+네이버 로그인-----------------------------ㅊ
+
+Client ID : ENDOOH8nFrZvnFqcybc2
+Client Secret : x5AUiGEQXM
+
+ENDOOH8nFrZvnFqcybc2 : clientID
+x5AUiGEQXM : client Secret key
+
+http://localhost:3000/
+http://localhost:3000/Login
+http://localhost:3000/Login/naver
+http://localhost:3000/Oauth
+Naver---------------------------------------------------------
+ENDOOH8nFrZvnFqcybc2 : clientID
+x5AUiGEQXM : client Secret key
+
+:https://nid.naver.com/oauth2.0/authorize
+method : GET, POST - -네이버 로그인 인증 요청 //출력포멧 : url 리다이렉트
+
+https://nid.naver.com/oauth2.0/token
+method : GET, POST(응답방식: JSON) - - 접근 토큰의 발급,갱신, 삭제 요청  //출력포멧 : json
+https://openapi.naver.com/v1/nid/me
+method : GET(응답방식: JSON)   - 회원 프로필 조회
+
+API URL : 
+nid/me (네이버아이디로로그인 사용자 프로필 조회 XML)
+nid/getUserProfile (네이버아이디로로그인 사용자 프로필 조회)
+
+<<<<<<< HEAD
+
+네이버 로그인 인증 요청)
+=======
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
+메서드:GET / POST, 인증:OAuth, 요청 URL:https://nid.naver.com/oauth2.0/authorize, 출력 포맷:URL 리다이렉트
+접근 토큰 발급/갱신/삭제 요청)
+메서드:GET / POST, 인증 : OAuth 2.0	요청 URL: https://nid.naver.com/oauth2.0/token		
+출력 포맷 : json
+
+<<<<<<< HEAD
+
+
+---------------------------------------------------------------------------------------------
+Client ID : ENDOOH8nFrZvnFqcybc2
+Client Secret : x5AUiGEQXM
+API URL : 
+nid/me (네이버아이디로로그인 사용자 프로필 조회 XML)
+nid/getUserProfile (네이버아이디로로그인 사용자 프로필 조회)
+=======
+BE_공통 토큰 처리 및 jwt발급 코드-----------------------------
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
+
+
+
+# 카카오 로그인 함수 구현 CQRS : Create
+async def login_by_kakao(
+    req: get_accesstoken,
+    background_tasks: BackgroundTasks,
+    mysql_db: AsyncSession,
+):
+    print("this is login_by_kakao api")
+    url = "https://kapi.kakao.com/v2/user/me"
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": f"Bearer ${req.accesstoken}",
+    }
+    async with httpx.AsyncClient(http2=True) as client:
+        response = json.loads((await client.post(url, headers=headers)).text)
+        if not response:
+            raise HTTPException(status_code=400, detail="정보가 없습니다.")
+        user, auth = make_user_data(response, req.provider)
+        res = await user_auth_collection_check(user.name, user.user_id, auth.provider)
+        if type(res) == bool and res:
+            await insert_db_and_kafka_message(user, auth, background_tasks, mysql_db)
+            return create_jwt(token=auth.token, provider=auth.provider)  # jwt 토큰 반환
+        elif type(res) == str:  # 유저가 있으니 create_jwt 생성해서 반환
+            return res
+        else:
+            raise HTTPException(status_code=400, detail=res)
+
+# jwt 토큰을 생성하는 함수
+def create_jwt(token: str, provider: str) -> str:
+    payload = {"token": token, "provider": provider}
+    try:
+        return jwt.encode(payload, settings.SERVER_SECRET_KEY, algorithm="HS256")
+    except JWTError:
+        raise ValueError("인코딩이 되지 않았습니다.")
+
+<<<<<<< HEAD
+========================================================================
+=======
+>>>>>>> 6fa6c7e57afd5e985f8b0c53e6c2bf4204b3f764
+gpt -------------------------
+이어서 app.js에서 
+             {isLoggedIn ? (
+                  //LogInModal
+                  <Route path="/MyPage" element={<MyPage />} />
+               ) : (
+                  <Route path="/Login" element={<M_Login />} />
+               )} 부분의 isLoggedIn을 구현하려고 해. Naver의 소셜로그인에 rest.api를 이용할 거야. 
+service client에서 카카오 로그인을 요청하는 과정 중 1.네이버 로그인 인증 요청을 구현할거야. API는 웹 또는 앱에 네이버 로그인 화면을 띄우는 API로, 이용자가 네이버 회원 인증에 성공했는지 확인해.
