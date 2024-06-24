@@ -1,0 +1,12 @@
+.filter_blur{
+    filter:blur(50%);
+}
+.filter_brightness{
+    filter:brightness(5px);
+}
+.filter_gray{
+    filter:grayscale(50%);
+}
+.filter_hueRotate{
+    filter: hue-rotate(120deg);
+}
