@@ -1,9 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import RateStar from "../RateStar.js";
 import "./Content.css";
-import { genres } from "./API/api_Media.js";
+import { genres } from "./FetchGenreID.js";
 
 //피쳐: id,title,runtime,release_date,certification,genre,origin_country,overview,director,actor,platform,rating_value,rating_count,posterurl_count,backdropurl_count,posterurl,backdropurl,contentype,
    function Media({
@@ -46,7 +46,11 @@ import { genres } from "./API/api_Media.js";
       //pathname: '/movie/1' -> detailpage/movie/id 경로로 이동
       //start:이동 시 함께 전달되는 상태 데이터 (대상 경로의 컴포넌트에서 'useLocation'hook으로 접근!) 
       <Link to={{
+<<<<<<< HEAD
           pathname: `/${dataTypeText}/${id}`,
+=======
+          pathname: `${id}`,
+>>>>>>> 52434b15dd422433a9e33bea42b2b4d98e946126
           state: {
             id,
             title,

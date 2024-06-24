@@ -1,118 +1,168 @@
-   import React,{useState} from 'react';
-   import { Link } from 'react-router-dom';
-   import ModalLogin from '../component/ModalLogin';
+import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import axios from 'axios';
+import { register } from 'swiper/element/bundle';
+import 'swiper/css';
 
-   const HomePage = () => {
-      const [isModalOpen, setIsModalOpen] = useState(false);
+const Container = styled.div
+   `padding: 10px;`;
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-   
-   return (      
-      <section className='flex flex-col items-center p-10 mb-10 bg-white dark:bg-gray-800 text-black dark:text-white'>
-         <div className='ModalLogin'>
-            <div>
-               <button className='btn w-64 rounded-full' onClick={openModal}>모달_로그인</button>  
+const PosterContainer = styled.div`
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+  }
+`;
+
+const MediaItem = styled.div`
+  text-align: center;
+  padding: 0px;
+  img {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    max-height: 180px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+`;
+
+const SwiperContainer = styled.div`
+  margin-bottom: 0px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 10px;
+  }
+`;
+
+const Home = () => {
+   const [data, setData] = useState([]);
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            // 첫 번째 API 호출
+            const weeklyResponse = await axios.get('https://api.mvti.site/info/weekly');
+            let combinedData = [{ "Weekly Contents": weeklyResponse.data }];
+
+            // 두 번째 API 호출
+            const randomKeywordResponse = await axios.get('https://api.mvti.site/info/random_keyword_content');
+            combinedData = [...combinedData, ...randomKeywordResponse.data];
+
+            setData(combinedData);
+         } catch (error) {
+            console.error('Error fetching data:', error);
+         }
+      };
+
+      fetchData();
+   }, []);
+
+
+   return (
+      <Container className='bg-white dark:bg-black text-black dark:text-white p-2'>
+         <PosterContainer >
+            <img src="https://via.placeholder.com/1200x400" alt="Featured Movie" />
+            <div className="overlay">
+               <h2>Featured Movie Title</h2>
+               <button onClick={() => navigate('/movie/featured')}>Play</button>
+               <button onClick={() => navigate('/movie/featured/info')}>More Info</button>
             </div>
-         </div>
-         <ModalLogin isOpen={isModalOpen} onClose={closeModal} />
-        <div className='MVTIContainer'>
-          {/*MVTIContainer 구성 : 검사하기 or 재검사+기존결과보기 버튼*/}
-          <div>
-            <Link to="/mvti_test">
-              <button className="btn w-64 rounded-full"> MVTI 검사하기</button>
-            </Link>
-          </div>
-        </div>
-          <article className='items-center'>
-            <h1>article 상단</h1>
-            <section className='cards-container'>
-              <div className='cards-recommeended '>
-                <div className="carousel carousel-horizontal max-h-md p-4 space-x-4 bg-neutral rounded-box">
-                  
-                    <div className="data-card_skeleton"/>
-                      <div className="flex flex-col gap-4 w-52">
-                        <div className="skeleton h-32 w-full"></div>
-                        <div className="skeleton h-4 w-28"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                    </div>
-                    <div className="data-card_skeleton"/>
-                      <div className="flex flex-col gap-4 w-52">
-                        <div className="skeleton h-32 w-full"></div>
-                        <div className="skeleton h-4 w-28"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                    </div>
-                    <div className="data-card_skeleton"/>
-                      <div className="flex flex-col gap-4 w-52">
-                        <div className="skeleton h-32 w-full"></div>
-                        <div className="skeleton h-4 w-28"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                    </div>
-                    <div className="data-card_skeleton"/>
-                      <div className="flex flex-col gap-4 w-52">
-                        <div className="skeleton h-32 w-full"></div>
-                        <div className="skeleton h-4 w-28"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                        <div className="skeleton h-4 w-full"></div>
-                    </div>                  
-                     
-                </div>
-              </div>
-            </section>
-            <br/>
-            <section className='cards-container'>
-              <div className='cards-recommeended'>
-                <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
-                  <div className="cards-carousel">
-                    <div className="data-card"/>
-                    </div> 
-                </div>
-              </div>
-            </section>
-          </article>
-        </section>
-  );
-}
+         </PosterContainer>
+         {data.map((category, index) => {
+            const [categoryName, medias] = Object.entries(category)[0];
+            return (
+               <SwiperSlider key={index} categoryName={categoryName} medias={medias} navigate={navigate} />
+            );
+         })}
+      </Container>
+   );
+};
 
-export default HomePage;
+const SwiperSlider = ({ categoryName, medias, navigate }) => {
+   const swiperRef = useRef(null);
 
+   useEffect(() => {
+      register();
 
-//<div className="data-card_skeleton"/>
-//<div className="flex flex-col gap-4 w-52">
-//  <div className="skeleton h-32 w-full"></div>
-//  <div className="skeleton h-4 w-28"></div>
-//  <div className="skeleton h-4 w-full"></div>
-//  <div className="skeleton h-4 w-full"></div>
-//</div>  
-//
+      const params = {
+         loop: true,
+         breakpoints: {
+            0: {
+               slidesPerView: 2,
+               spaceBetween: 10,
+            },
+            480: {
+               slidesPerView: 3,
+               spaceBetween: 10,
+            },
+            768: {
+               slidesPerView: 4,
+               spaceBetween: 10,
+            },
+            1024: {
+               slidesPerView: 5,
+               spaceBetween: 10,
+            },
+            1440: {
+               slidesPerView: 6,
+               spaceBetween: 10,
+            },
+            1620: {
+               slidesPerView: 7,
+               spaceBetween: 10,
+            },
+            1800: {
+               slidesPerView: 8,
+               spaceBetween: 10,
+            }
+         },
+      };
 
-//  //import axios from "axios";
-//  //import Content from"../component/Content";
-//  //import { render } from '@testing-library/react';
-//
-//  import React from 'react';
-//  import "./HomePage.css";
-//  import Layout from '../component/Layout';
+      Object.assign(swiperRef.current, params);
+      swiperRef.current.initialize();
+   }, []);
 
-//
-//    <div className="ContentContainer">
-//      {/*ContentContainer 구성*/}
-//      <img src="../asset/img/chungking.jpg" alt="poster01"/>
-//      <img src="../asset/img/poster01.jpg" alt="poster02"/>
-//      <img src="../asset/img/poster02.jpg" alt="poster03"/>
-//    </div>
-//    {/* 다른 컨텐츠를 추가할 수 있도록 children을 렌더링합니다 */}
-//    
-//  </Layout>
-//);
-//}
-//
-//export default HomePage;
-//
-//
-////import axios from "axios";
-////import Content from"../component/Content";
-////import { render } from '@testing-library/react';
+   const handleClick = (e, movieId) => {
+      navigate(`/content/${movieId}`);
+   };
+
+   return (
+      <SwiperContainer className='bg-white dark:bg-black text-black dark:text-white p-2 rounded-md'>
+         <h2>{categoryName}</h2>
+         <swiper-container init="false" ref={swiperRef}>
+            {medias.map((media) => (
+               <swiper-slide key={media.id}>
+                  <MediaItem onClick={(e) => handleClick(e, media.id)}>
+                     <img src={`https://mvti.site/thumbnail/${media.id}/0`} alt={media.id} />
+                     <p>{media.title}</p>
+                  </MediaItem>
+               </swiper-slide>
+            ))}
+         </swiper-container>
+      </SwiperContainer>
+   );
+};
+
+export default Home;
