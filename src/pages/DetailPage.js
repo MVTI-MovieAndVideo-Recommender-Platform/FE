@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 // import Rating from "../component/Rating.js";
 import StarRating from "../component/RateStar.js";
-import MediaDetail from "../component/Media/MediaDetail.js";
+//import MediaDetail from "../component/Media/MediaDetail.js";
 import styled from 'styled-components';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';

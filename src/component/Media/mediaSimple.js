@@ -42,3 +42,4 @@ function DetailPage() {
 }
 
 export default DetailPage;
+//완_ 안쓰이는거같음!! 지우기

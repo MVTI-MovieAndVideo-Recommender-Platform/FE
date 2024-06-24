@@ -3,7 +3,7 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import DetailPage from './pages/DetailPage.js';
 import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
-import SamplePage from './pages/SamplePage.js';
+//import SamplePage from './pages/SamplePage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
 import GenrePage from './pages/GenrePage.js';

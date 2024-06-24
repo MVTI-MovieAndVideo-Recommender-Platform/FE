@@ -26,3 +26,4 @@ export const previousRecommendationsState = atom({
     key: 'previousRecommendations',
     default: [],
 });
+//완
