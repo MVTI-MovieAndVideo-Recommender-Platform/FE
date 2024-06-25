@@ -119,41 +119,5 @@ const closeModal = () => setModalIsOpen(false);
   );
 };
 
-<<<<<<< HEAD
-export default Header;
-
-      //<button className="btn btn-square btn-ghost">
-      //  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current">
-      //    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
-      //    </path>
-      //  </svg>
-      //</button>
-
-
-//<header className="bg-white dark:bg-gray-800 text-black dark:text-white p-3 fixed top-0 w-full z-50">
-//<div className="flex justify-between items-center py-2 px:4 md:px-40 border-b border-gray-100 dark:border-gray-700">
-//   <Link to="/">
-//      <img src={logo} alt="MVTI_logo" className="h-10"/>
-//   </Link>
-//      <nav className="App-header-navbar flex space-x-4">
-//         <Link to="/"  className="hover:underline">HomePage</Link>
-//         <Link to="/mypage" className="hover:underline">MyPage</Link>
-//         <Link to="/content/:id"  className="hover:underline">DetailPage</Link>
-//         < Link to="/login"  className="hover:underline">SocialLogin</Link>
-//         <Link to="/mvti_result"  className="hover:underline">MVTIResultPage</Link>
-//         <Link to="/mvti_test"  className="hover:underline">MVTITestPage</Link>
-//      </nav>
-//      <div className="flex items-center space-x-4">
-//        <button
-//        onClick={toggleColorMode}
-//        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600"
-//        aria-label="Toggle dark mode">
-//          {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-//        </button>
-//      </div>   
-//</div>
-//</header>
-=======
 
 export default Header;
->>>>>>> 52434b15dd422433a9e33bea42b2b4d98e946126
