@@ -144,7 +144,7 @@ const DetailPage = () => {
                <h2 className="text-2xl font-semibold mt-2 mb-3 text:gray-900 dark:text-white items-center">갤러리</h2>
                <div className="flex flex-wrap">
                   {Array(movie.backdropurl_count).fill(0).map((_, index) => (
-                     <img key={index} src={`https://mvti.site/banner/${movie.id}/${index}`} alt={`Gallery image ${index + 1}`} className="w-1/5 mr-2 mb-2 rounded-lg" />
+                     <img key={index} src={`https://mvti.site/banner/${movie.id}/${index}`} alt={`Gallery ${index + 1}`} className="w-1/5 mr-2 mb-2 rounded-lg" />
                   ))}
                </div>
             </div>
