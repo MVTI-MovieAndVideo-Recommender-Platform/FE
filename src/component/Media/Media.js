@@ -46,11 +46,7 @@ import { genres } from "./FetchGenreID.js";
       //pathname: '/movie/1' -> detailpage/movie/id 경로로 이동
       //start:이동 시 함께 전달되는 상태 데이터 (대상 경로의 컴포넌트에서 'useLocation'hook으로 접근!) 
       <Link to={{
-<<<<<<< HEAD
-          pathname: `/${dataTypeText}/${id}`,
-=======
           pathname: `${id}`,
->>>>>>> 52434b15dd422433a9e33bea42b2b4d98e946126
           state: {
             id,
             title,

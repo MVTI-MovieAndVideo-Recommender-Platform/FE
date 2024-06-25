@@ -5,13 +5,25 @@ module.exports = {
    content: [
      "./src/**/*.{js,jsx}",
    ],
+
    theme: {
-     extend: {},
-   },
-   variants: {
-     extend: {},
-   },
-   plugins: [
-      require("daisyui"),
-   ],
- }
+      extend: {
+          backdropBlur: {
+            'xl': '30px',
+          },
+          boxShadow: {
+            'custom-light': '0px 0px 30px rgba(227, 228, 237, 0.37)',
+          },
+          borderColor: {
+            'custom-light': 'rgba(255, 255, 255, 0.18)',
+          },
+        },
+     },
+
+     variants: {
+      extend: {
+        backdropBlur: ['responsive'],
+      },
+    },
+    plugins: [],
+};

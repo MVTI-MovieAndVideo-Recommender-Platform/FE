@@ -1,7 +1,0 @@
-.star {
-   cursor:pointer;
-   transition: color 0.2s;
-}
-.star:hover {
-   color: #ffd700;
-}
