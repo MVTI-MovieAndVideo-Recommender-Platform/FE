@@ -7,10 +7,11 @@ const GuestRoute = ({ children }) => {
   const user = useRecoilValue(userState);
 
   if (user !== null) {
-    return <Navigate to="/" />;
+    return <Navigate to="/mypage" />;
   }
 
   return children;
 };
 
 export default GuestRoute;
+//완

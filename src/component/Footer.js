@@ -10,7 +10,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-white p-3 fixed bottom-0 w-full dark:dark:bg-gray-800 text-black dark:text-white">
+    <footer className="bg-white dark:bg-gray-800 text-black dark:text-white p-2 fixed top-0 w-full shadow-md z-50">
         
    </footer>
   );

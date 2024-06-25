@@ -3,11 +3,11 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import DetailPage from './pages/DetailPage.js';
 import HomePage from './pages/HomePage.js';
 import MyPage from './pages/MyPage.js';
-import SamplePage from './pages/SamplePage.js';
+//import SamplePage from './pages/SamplePage.js';
 import MVTITestPage from './pages/MVTITestPage.js';
 import MVTIResultPage from './pages/MVTIResultPage.js';
 import GenrePage from './pages/GenrePage.js';
-import ErrorPage from './pages/Error.js';
+import Error from './pages/Error.js';
 
 import SocialLogin from "./pages/SocialLogin.js"; // SocialLogin import
 import NaverAuthRedirect from './component/login/NaverAuthRedirect.js';
@@ -19,6 +19,8 @@ import Layout from "./component/Layout.js";
 
 import ProtectedRoute from './component/state/ProtectedRoute.js';
 import GuestRoute from './component/state/GuestRoute.js';
+import MvtiReTestPage from "./pages/MVTIReTestPage.js";
+import SearchPage from "./pages/SearchPage.js";
 
 export function App() {
 
@@ -28,12 +30,12 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/mvti_test" element={<MVTITestPage />} />
-          <Route path="/mvti_re_test" element={<MVTITestPage />} />
-          <Route path="/SamplePage" element={<SamplePage />} />
+          <Route path="/re_mvti_test" element={<MvtiReTestPage />} />
           <Route path="/mvti_result" element={<MVTIResultPage />} />
           <Route path="/genre/:id" element={<GenrePage />} /> {/* GenrePage 경로 설정 */}
           <Route path="/content/:id" element={<DetailPage />} />
-          <Route path="/error" element={<ErrorPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/error" element={<Error />} />
 
           <Route path="/login" element={
             <GuestRoute>
@@ -50,6 +52,7 @@ export function App() {
               <MyPage />
             </ProtectedRoute>
           } />
+          
           {/* 추가 */}
           <Route path="/login/naver" element={<NaverAuthRedirect />} />
           <Route path="/login/naver/callback" element={<NaverCallbackPage />} />

@@ -1,8 +1,4 @@
 ## [개발 일지]
-
-### FE 메모
-
-
 features_keyfeature
 ### 0609 added
 

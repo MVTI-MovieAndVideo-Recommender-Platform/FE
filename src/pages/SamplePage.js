@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import StepIndicator from '../component/StepIndicator.js';
 import "./css/MVTITestPage.css"
 
-//
 const SamplePage = () => {
     const [text, setText] = useState("");
     const [mbti, setMBTI] = useState("");

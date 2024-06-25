@@ -1,59 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import axios from 'axios';
 import { register } from 'swiper/element/bundle';
 import 'swiper/css';
-
-const Container = styled.div
-   `padding: 10px;`;
-
-const PosterContainer = styled.div`
-  position: relative;
-  text-align: center;
-  margin-bottom: 20px;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-
-  .overlay {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-  }
-`;
-
-const MediaItem = styled.div`
-  text-align: center;
-  padding: 0px;
-  img {
-    width: 100%;
-    height: auto;
-    max-width: 320px;
-    max-height: 180px;
-    object-fit: cover;
-    cursor: pointer;
-  }
-`;
-
-const SwiperContainer = styled.div`
-  margin-bottom: 0px;
-
-  @media (max-width: 1024px) {
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 768px) {
-    margin-bottom: 15px;
-  }
-
-  @media (max-width: 480px) {
-    margin-bottom: 10px;
-  }
-`;
+import 'daisyui';
 
 const Home = () => {
    const [data, setData] = useState([]);
@@ -62,11 +12,9 @@ const Home = () => {
    useEffect(() => {
       const fetchData = async () => {
          try {
-            // 첫 번째 API 호출
             const weeklyResponse = await axios.get('https://api.mvti.site/info/weekly');
             let combinedData = [{ "Weekly Contents": weeklyResponse.data }];
 
-            // 두 번째 API 호출
             const randomKeywordResponse = await axios.get('https://api.mvti.site/info/random_keyword_content');
             combinedData = [...combinedData, ...randomKeywordResponse.data];
 
@@ -78,25 +26,26 @@ const Home = () => {
 
       fetchData();
    }, []);
-
+// return ( **내부 div 안에!)
+//   <div className="relative text-center mb-6">
+//   <img src="https://via.placeholder.com/1200x400" alt="Featured Movie" className="w-full h-auto" />
+//   <div className="absolute bottom-4 left-4 text-white">
+//      <h2 className="text-2xl">Featured Movie Title</h2>
+//      <button className="btn btn-primary m-2" onClick={() => navigate('/movie/featured')}>Play</button>
+//      <button className="btn btn-secondary m-2" onClick={() => navigate('/movie/featured/info')}>More Info</button>
+//   </div>
+//</div>
 
    return (
-      <Container className='bg-white dark:bg-black text-black dark:text-white p-2'>
-         <PosterContainer >
-            <img src="https://via.placeholder.com/1200x400" alt="Featured Movie" />
-            <div className="overlay">
-               <h2>Featured Movie Title</h2>
-               <button onClick={() => navigate('/movie/featured')}>Play</button>
-               <button onClick={() => navigate('/movie/featured/info')}>More Info</button>
-            </div>
-         </PosterContainer>
+      <div className="container items-center p-4 mb-10 w-full px-auto p-1 pb-8 pt-3 bg-white dark:bg-gray-900">
+
          {data.map((category, index) => {
             const [categoryName, medias] = Object.entries(category)[0];
             return (
                <SwiperSlider key={index} categoryName={categoryName} medias={medias} navigate={navigate} />
             );
          })}
-      </Container>
+      </div>
    );
 };
 
@@ -109,34 +58,13 @@ const SwiperSlider = ({ categoryName, medias, navigate }) => {
       const params = {
          loop: true,
          breakpoints: {
-            0: {
-               slidesPerView: 2,
-               spaceBetween: 10,
-            },
-            480: {
-               slidesPerView: 3,
-               spaceBetween: 10,
-            },
-            768: {
-               slidesPerView: 4,
-               spaceBetween: 10,
-            },
-            1024: {
-               slidesPerView: 5,
-               spaceBetween: 10,
-            },
-            1440: {
-               slidesPerView: 6,
-               spaceBetween: 10,
-            },
-            1620: {
-               slidesPerView: 7,
-               spaceBetween: 10,
-            },
-            1800: {
-               slidesPerView: 8,
-               spaceBetween: 10,
-            }
+            0: { slidesPerView: 2, spaceBetween: 10 },
+            480: { slidesPerView: 3, spaceBetween: 10 },
+            768: { slidesPerView: 4, spaceBetween: 10 },
+            1024: { slidesPerView: 5, spaceBetween: 10 },
+            1440: { slidesPerView: 6, spaceBetween: 10 },
+            1620: { slidesPerView: 7, spaceBetween: 10 },
+            1800: { slidesPerView: 8, spaceBetween: 10 }
          },
       };
 
@@ -144,25 +72,31 @@ const SwiperSlider = ({ categoryName, medias, navigate }) => {
       swiperRef.current.initialize();
    }, []);
 
-   const handleClick = (e, movieId) => {
+   const handleClick = (movieId) => {
       navigate(`/content/${movieId}`);
    };
 
    return (
-      <SwiperContainer className='bg-white dark:bg-black text-black dark:text-white p-2 rounded-md'>
-         <h2>{categoryName}</h2>
+      <div className="pb-8 pt-6 bg-white dark:bg-gray-900 text-black dark:text-white p-3 w-full justify-center">
+         <h2 className="text-xl items-center font-bold pb-4 pt-6 bg-white dark:bg-gray-900 text-black dark:text-white p-3">{categoryName}</h2>
          <swiper-container init="false" ref={swiperRef}>
-            {medias.map((media) => (
-               <swiper-slide key={media.id}>
-                  <MediaItem onClick={(e) => handleClick(e, media.id)}>
-                     <img src={`https://mvti.site/thumbnail/${media.id}/0`} alt={media.id} />
-                     <p>{media.title}</p>
-                  </MediaItem>
+            {medias.map((media, index) => (
+               <swiper-slide key={`${media.id}-${index}`}>
+                  <div className="text-center cursor-pointer items-center" onClick={() => handleClick(media.id)}>
+                     <img
+                        src={`https://mvti.site/poster/${media.id}/0`}
+                        alt={media.id}
+                        className="rounded-lg w-full h-auto transition-transform duration-300 transform hover:scale-105"
+                        loading="lazy"
+                     />
+                     <p className="pt-2">{media.title}</p>
+                  </div>
                </swiper-slide>
             ))}
          </swiper-container>
-      </SwiperContainer>
+      </div>
    );
 };
 
 export default Home;
+//둥글게~~
