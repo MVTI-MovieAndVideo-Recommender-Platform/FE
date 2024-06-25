@@ -1,0 +1,28 @@
+.TestPage {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+}
+
+.steps {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+.step {
+   padding: 20px;
+   margin: 10px 0;
+}
+
+.hidden {
+   display: none;
+}
+
+.responsive-box {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
