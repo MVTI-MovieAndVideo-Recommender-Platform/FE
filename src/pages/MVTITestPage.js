@@ -85,13 +85,11 @@ const MVTITestPage = () => {
         const userMbti = selectedMBTI;
         const userMediaTitle = selectedMedias.map(media => media.title);
 
-        const startTime = Date.now();
         await axios.post('https://api.mvti.site/recommend/first_recommend', {
             user_mbti: userMbti,
             input_media_title: userMediaTitle
         })
             .then(response => {
-                const endTime = Date.now();
                 // setLoading(((endTime - startTime) / 1000).toFixed(2));
                 setLoading(true);
                 navigate('/mvti_result', { state: { result: response.data.result } });
