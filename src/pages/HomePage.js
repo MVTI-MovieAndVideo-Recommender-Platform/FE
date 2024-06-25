@@ -13,7 +13,7 @@ const Home = () => {
       const fetchData = async () => {
          try {
             const weeklyResponse = await axios.get('https://api.mvti.site/info/weekly');
-            let combinedData = [{ "Weekly Contents": weeklyResponse.data }];
+            let combinedData = [{ "주간 인기 컨텐츠": weeklyResponse.data }];
 
             const randomKeywordResponse = await axios.get('https://api.mvti.site/info/random_keyword_content');
             combinedData = [...combinedData, ...randomKeywordResponse.data];
@@ -37,12 +37,12 @@ const Home = () => {
 //</div>
 
    return (
-      <div className="container items-center p-4 mb-10 w-full px-auto p-1 pb-8 pt-3 bg-white dark:bg-gray-900">
+      <div className="container x-screen items-center p-4 mb-10 w-full px-auto p-1 pb-8 pt-3 bg-white dark:bg-gray-900">
 
          {data.map((category, index) => {
             const [categoryName, medias] = Object.entries(category)[0];
             return (
-               <SwiperSlider key={index} categoryName={categoryName} medias={medias} navigate={navigate} />
+               <SwiperSlider className="items-center" key={index} categoryName={categoryName} medias={medias} navigate={navigate} />
             );
          })}
       </div>
@@ -77,7 +77,7 @@ const SwiperSlider = ({ categoryName, medias, navigate }) => {
    };
 
    return (
-      <div className="pb-8 pt-6 bg-white dark:bg-gray-900 text-black dark:text-white p-3 w-full justify-center">
+      <div className="pb-8 pt-6 bg-white dark:bg-gray-900 text-black dark:text-white x-full p-3 w-full items-center  justify-center">
          <h2 className="text-xl items-center font-bold pb-4 pt-6 bg-white dark:bg-gray-900 text-black dark:text-white p-3">{categoryName}</h2>
          <swiper-container init="false" ref={swiperRef}>
             {medias.map((media, index) => (

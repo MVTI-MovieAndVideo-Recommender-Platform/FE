@@ -4,9 +4,9 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen ">
+    <div className="flex flex-col min-h-screen w-full items-center">
       <Header />
-      <main className="bg-white  dark:bg-gray-900 text-black dark:text-white pt-10 pb-10">
+      <main className="flex justify-center bg-white dark:bg-gray-900 text-black dark:text-white w-full pt-10 pb-10">
         {children}
       </main>
       {/* <Footer /> */}
@@ -15,3 +15,4 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+

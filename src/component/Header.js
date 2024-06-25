@@ -66,7 +66,7 @@ const Header = () => {
   const closeModal = () => setModalIsOpen(false);
 
   return (
-    <header className="bg-white dark:bg-gray-800 bg-opacity-50 dark:bg-opacity-60 text-black dark:text-white p-2 fixed top-0 w-full shadow-md z-50">
+    <header className="bg-white dark:bg-gray-800 bg-opacity-50 dark:bg-opacity-60 text-black dark:text-white pt-2 p-1 fixed top-0 w-full shadow-md z-50">
       <nav className="container mx-auto px-2 py-1 flex items-center justify-between">
         <div className="flex items-center">
           <button onClick={toggleDropdown} className="lg:hidden p-1 rounded-full">
@@ -76,7 +76,7 @@ const Header = () => {
           </button>
     
           <Link to="/" className="text-2xl font-bold text-gray-800 dark:text-white">
-            <img src={isDarkMode ? logoDark : logoLight} alt="MVTI_logo" className="h-12 w-auto mx-3" />
+            <img src={isDarkMode ? logoDark : logoLight} alt="MVTI_logo" className="h-14 w-auto px-3" />
           </Link>
         </div>
         <div className="hidden lg:flex items-center space-x-5">
