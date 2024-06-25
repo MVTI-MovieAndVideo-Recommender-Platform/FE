@@ -60,7 +60,9 @@ const fetchDataFromServer = async function(url, callback) {
 
 // fetchGenreID: fetchDataFromServer -> 각 media 객체에 genre_ID를 부여!
 const fetchGenreID = async (callback) => {
-   const url = 'https://api.mvti.site/info/${id}'; // URL 인코딩 및 파라미터 확인
+   console.log("test");
+   //const _url = 'https://api.mvti.site/info/${id}';
+   const url = 'https://api.mvti.site/info/id'; // URL 인코딩 및 파라미터 확인
    await fetchDataFromServer(url, (data) => {
       const processedData = data.results.map(media => {
          if (media.genre && media.genre.length > 0) {
