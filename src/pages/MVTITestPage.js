@@ -136,7 +136,7 @@ const MVTITestPage = () => {
 
     return (
         <div className="container mx-auto p-4 pt-10 bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
-        <h1 className="text-3xl font-bold m-6 text-center">MMTI 검사하기</h1>
+        <h1 className="text-3xl font-bold m-6 text-center">MBTI 검사하기</h1>
         <p className="mb-6 text-center mb-4">
             버튼을 클릭하여 나의 MBTI 입력 후,
             <br />
