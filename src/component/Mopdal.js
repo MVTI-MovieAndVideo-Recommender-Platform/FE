@@ -29,11 +29,15 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null; // isOpen이 false면 모달을 렌더링하지 않음
 
   return (
+   <div>
    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 <div className="bg-white p-4 rounded-lg relative">
   <button className="absolute top-2 right-2 text-gray-500" onClick={onClose}>X</button>
   {children}
 </div>
+
+</div>
+
 </div>
   );
 }

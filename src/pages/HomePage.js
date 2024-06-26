@@ -5,7 +5,7 @@ import { register } from 'swiper/element/bundle';
 import 'swiper/css';
 import 'daisyui';
 
-const Home = () => {
+const HomePage = () => {
    const [data, setData] = useState([]);
    const navigate = useNavigate();
 
@@ -108,4 +108,4 @@ const SwiperSlider = ({ categoryName, medias, navigate }) => {
    );
 };
 
-export default Home;
+export default HomePage;

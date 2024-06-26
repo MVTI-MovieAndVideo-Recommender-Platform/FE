@@ -392,13 +392,13 @@ const SearchPage = () => {
             )}
             {isFilterModalOpen && ['Keyword', 'Title', 'Director', 'Actor'].includes(currentFilterType) && (
                 <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center">
-                    <div className="bg-gray-800 p-4 rounded w-96">
-                        <h2 className="text-white mb-4">Filter {currentFilterType}</h2>
+                    <div className="bg-gray-200 dark:hover:bg-gray-600 bg-gray-300 dark:bg-gray-700 p-4 rounded w-96">
+                        <h2 className="text-black dark:text-white mb-4">Filter {currentFilterType}</h2>
                         <input
                             type="text"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
-                            className="w-full p-2 mb-4 bg-gray-700 text-white rounded"
+                            className="w-full p-2 mb-4 text-xl text-black dark:text-white bg-gray-200 dark:hover:bg-gray-600 bg-gray-300 dark:bg-gray-700 rounded"
                             placeholder={`Enter ${currentFilterType}`}
                         />
                         <div className="flex justify-end">
@@ -420,7 +420,7 @@ const SearchPage = () => {
             )}
             {loading ? (
                 <div className="fixed inset-0 bg-white-100 bg-opacity-95 flex justify-center items-center w-full h-full">
-                <div className="fixed inset-0 bg-white-100 bg-opacity-100 flex justify-center items-center ">
+                <div className="fixed inset-0 bg-white-100 bg-opacity-50 flex justify-center items-center ">
                     <LoadingSpinner />
                 </div>
                 <LoadingSpinner/>
@@ -428,7 +428,7 @@ const SearchPage = () => {
             ) : (
                 <div className="flex flex-wrap gap-4 justify-center w-4/5">
                     {results.map((result) => (
-                        <div key={result.id} className="bg-gray-800 rounded-lg overflow-hidden w-full md:w-1/2 md-p-5 lg:w-1/4 xl:w-1/6 text-center  cursor-pointer" onClick={() => handleClick(result.id)}>
+                        <div key={result.id} className="text-xl text-black dark:text-white bg-gray-100 dark:bg-gray-600 bg-gray-300 dark:bg-gray-700 rounded-lg overflow-hidden w-full md:w-1/2 md-p-5 lg:w-1/4 xl:w-1/6 text-center  cursor-pointer" onClick={() => handleClick(result.id)}>
                             <img src={`https://mvti.site/poster/${result.id}/0`} alt={result.id} className="rounded-lg w-full h-auto transition-transform duration-300 transform hover:scale-105"
                                 loading="lazy" />
                             <h3 className="p-2 text-lg">{result.title}</h3>
@@ -445,11 +445,11 @@ const FilterModal = ({ isOpen, onClose, onConfirm, filterType, options, selected
 
     return (
         <div className="fixed inset-0 bg-white dark:bg-gray-900 bg-opacity-75 pt-10 flex justify-center items-center">
-            <div className="bg-white dark:bg-gray-900 p-4 rounded w-96">
-                <h2 className="text-white mb-4">Filter {filterType}</h2>
+            <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded w-96">
+                <h2 className="text-black dark:text-white mb-4">Filter {filterType}</h2>
                 <div className="max-h-48 overflow-y-auto border border-gray-700 p-2 bg-gray-200 dark:bg-gray-700 rounded">
                     {options.map((option, index) => (
-                        <label key={index} className="block text-black dark:text-white">
+                        <label key={index} className="block text-black dark:text-white bg-gray-200 dark:bg-gray-700">
                             <input
                                 type="checkbox"
                                 value={option}
@@ -489,10 +489,10 @@ const DateFilterModal = ({ isOpen, onClose, onConfirm, selectedStartDate, select
     return (
         <div className="flex justify-center items-center bg-white dark:bg-gray-900 inset-0 bg-opacity-75 ">
             <div className="bg-white dark:bg-gray-900 p-4 rounded w-96">
-                <h2 className="text-white mb-4">Filter Year</h2>
+                <h2 className="text-black dark:text-white mb-4">Filter Year</h2>
                 <div className="flex justify-between mb-4">
                     <div>
-                        <label className="text-white block mb-2">Start Date</label>
+                        <label className="text-black dark:text-white mb-2">Start Date</label>
                         <input
                             type="date"
                             value={selectedStartDate}

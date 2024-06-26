@@ -17,6 +17,7 @@ module.exports = {
           borderColor: {
             'custom-light': 'rgba(255, 255, 255, 0.18)',
           },
+          
         },
      },
 

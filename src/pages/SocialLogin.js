@@ -6,16 +6,25 @@ import "./css/Login.css";
 
 const SocialLogin = () => {
 
-    return (
-    <main className='flex flex-col items-center p-10 mb-10'>
-        <h5>소셜 아이디로 간편하게!</h5>
-        <div className="flex justify-center mb-4">
-            <button className="N_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" 
-            onClick={openNaverLogin}></button>
-        </div>
-        <div className="flex justify-center">
-            <button className="K_login_button w-64 h-12 bg-center bg-contain bg-no-repeat" 
-            onClick={openKakaoLogin}></button>
+    return (    <main className='flex flex-col items-center p-10 mb-10'>
+      <h5 className='text-xl'>소셜 아이디로 간편하게!</h5>
+      <div className="flex justify-center mb-4 mt-3">
+        <button 
+          className="N_login_button w-64 h-14 text-white font-bold rounded-lg flex items-center justify-center"
+          style={{ backgroundColor: '#03c75a' }}
+          onClick={openNaverLogin}
+        >
+          네이버 로그인
+        </button>
+      </div>
+      <div className="flex justify-center">
+        <button 
+          className="w-64 h-14 text-black font-bold rounded-lg flex items-center justify-center"
+          style={{ backgroundColor: '#fee500' }}
+          onClick={openKakaoLogin}
+        >
+          카카오 로그인
+        </button>
         </div>
     </main>
     )

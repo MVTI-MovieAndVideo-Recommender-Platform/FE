@@ -76,14 +76,14 @@ const MvtiReTestPage = () => {
 
     if (loading) {
         return (
-            <div className="container mx-auto p-4 bg-gray-900 text-white min-h-screen">
+            <div className="container mx-auto p-4 bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
                 <LoadingSpinner />
             </div>
         );
     }
 
     return (
-        <div className="container mx-auto p-4 bg-gray-900 text-white min-h-screen">
+        <div className="container mx-auto p-4 bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
             <h1 className="text-3xl font-bold mb-6 text-center">다시 추천받을 컨텐츠</h1>
 
             {selectedMedias.length > 0 && (

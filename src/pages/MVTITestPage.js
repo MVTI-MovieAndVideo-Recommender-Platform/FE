@@ -128,7 +128,7 @@ const MVTITestPage = () => {
 
     if (loading) {
         return (
-            <div className="container mx-auto p-4 bg-gray-100 text-white bg-opacity-75 min-h-screen">
+            <div className="container mx-auto p-4 bg-gray-100 text-white bg-opacity-75 min-h-screen w-full">
                 <LoadingSpinner />
             </div>
         );
@@ -164,7 +164,7 @@ const MVTITestPage = () => {
             {selectedMedias.length > 0 && (
                 <div className="m-3 p-3 rounded-lg">
                     <h2 className="text-2xl font-semibold mb-4 text-center">선택 컨텐츠 :</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
+                    <div className="flex flex-wrap justify-center gap-4 text-white dark:text-white">
                         {selectedMedias.map((media) => (
                             <SelectedMediaCard key={media.id} media={media} onRemove={handleMediaRemove} />
                         ))}
@@ -188,7 +188,7 @@ const MVTITestPage = () => {
                         선택완료
                     </button>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-gray-300 dark:bg-gray-700 text-white dark:text-black">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-gray-300 dark:bg-gray-700 text-black dark:text-white">
                     {medias.map((media, index) => (
                         <MediaCard key={`${media.id}-${index}`} media={media} isSelected={selectedMedias.includes(media)} onSelect={handleMediaSelect} />
                     ))}
@@ -245,7 +245,7 @@ const MediaCard = React.memo(({ media, isSelected, onSelect }) => (
 
 const SelectedMediaCard = React.memo(({ media, onRemove }) => (
     <span
-        className="dark:bg-gray-300 bg-gray-700 dark:text-white text-white py-2 px-4 rounded cursor-pointer"
+        className="dark:bg-gray-700 bg-gray-300 dark:text-white text-black py-2 px-4 rounded cursor-pointer"
         onClick={() => onRemove(media)}
     >
         {media.title}

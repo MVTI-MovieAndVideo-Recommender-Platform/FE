@@ -22,7 +22,7 @@ const MvtiResultPage = () => {
 
   if (loading) {
     return (
-      <div className=' items-center justify-center '>
+      <div className=' fixed inset-0 bg-white bg-opacity-50 flex justify-center items-center '>
         <LoadingSpinner />
       </div>
     );
@@ -30,7 +30,19 @@ const MvtiResultPage = () => {
 
   return (
     <div className="container mx-auto p-4  bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
-      <h1 className="text-3xl font-bold pb-6 pt-4  text-center">추천 컨텐츠</h1>
+      <h1 className="text-3xl font-bold pb-6 pt-10 p-5 text-center">추천 컨텐츠</h1>
+      <div className="mt-8 text-center">
+        <button
+          className="py-2 px-4 m-5 rounded bg-green-500 text-white"
+          onClick={handleReRecommend}
+        >
+          재추천
+        </button>
+        <Link to="/" className="py-2 px-4 m-5 rounded bg-blue-500 text-white">
+          홈으로
+        </Link>
+        </div>
+
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {medias.map((media, index) => (
           <MediaCard key={`${media.id}-${index}`} media={media} navigate={navigate} />
@@ -41,7 +53,7 @@ const MvtiResultPage = () => {
           className="py-2 px-4 m-5 rounded bg-green-500 text-white"
           onClick={handleReRecommend}
         >
-          재추천 받아보시겠습니까?
+          재추천
         </button>
         <Link to="/" className="py-2 px-4 m-5 rounded bg-blue-500 text-white">
           홈으로

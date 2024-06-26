@@ -80,9 +80,9 @@ const Header = () => {
           </Link>
         </div>
         <div className="hidden lg:flex items-center space-x-5">
-          <Link to="/mvti_test" className="hover:text-blue-600 hover:underline font-semibold">MVTI추천</Link>
-          <Link to="/mypage" className="hover:text-blue-600 hover:underline font-semibold" onClick={openModal}>프로필</Link>
-          <Link to="/search" className="hover:text-blue-600 hover:underline font-semibold">검색</Link>
+          <Link to="/mvti_test" className="text-xl hover:text-blue-600 hover:underline font-semibold">MVTI추천</Link>
+          <Link to="/mypage" className="text-xl hover:text-blue-600 hover:underline font-semibold" onClick={openModal}>프로필</Link>
+          <Link to="/search" className="text-xl hover:text-blue-600 hover:underline font-semibold">검색</Link>
         </div>
         <div className="flex items-center space-x-2">
           <div>
