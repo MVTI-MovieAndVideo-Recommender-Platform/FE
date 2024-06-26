@@ -3,7 +3,7 @@ name: React Build and Deploy to S3
 on:
   push:
     branches:
-      - main
+      - deveopFin
 
 jobs:
   build:
